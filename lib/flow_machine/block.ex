@@ -11,7 +11,7 @@ defmodule FlowMachine.Block.Exit do
             config: %{}
 
   @type t :: %__MODULE__{
-          uuid: UUID.t(),
+          uuid: binary,
           label: FlowMachine.Resource.t(),
           tag: String.t(),
           destination_block: UUID.t() | nil,

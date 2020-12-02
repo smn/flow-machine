@@ -13,7 +13,7 @@ defmodule FlowMachine.Flow do
             blocks: []
 
   @type t :: %__MODULE__{
-          uuid: UUID.t(),
+          uuid: binary,
           name: String.t(),
           label: String.t() | nil,
           last_modified: DateTime.t(),

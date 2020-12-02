@@ -13,7 +13,7 @@ defmodule FlowMachine.Container do
 
   @type t :: %__MODULE__{
           specification_version: String.t(),
-          uuid: UUID.t(),
+          uuid: binary,
           name: String.t(),
           description: String.t(),
           platform_metadata: map,
