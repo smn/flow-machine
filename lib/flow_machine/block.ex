@@ -43,6 +43,6 @@ defmodule FlowMachine.Block do
           platform_metadata: map,
           type: String.t(),
           config: map,
-          exits: [FlowMachine.Block.Exit]
+          exits: [FlowMachine.Block.Exit.t()]
         }
 end
