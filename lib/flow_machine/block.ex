@@ -14,7 +14,7 @@ defmodule FlowMachine.Block.Exit do
           uuid: binary,
           label: FlowMachine.Resource.t(),
           tag: String.t(),
-          destination_block: UUID.t() | nil,
+          destination_block: binary | nil,
           semantic_label: String.t() | nil,
           test: String.t() | nil,
           config: map
@@ -36,7 +36,7 @@ defmodule FlowMachine.Block do
             exits: []
 
   @type t :: %__MODULE__{
-          uuid: UUID.t(),
+          uuid: binary,
           name: String.t(),
           label: String.t() | nil,
           semantic_label: String.t() | nil,
