@@ -1,26 +1,3 @@
-defmodule FlowMachine.Block.Exit do
-  @moduledoc """
-  An exit out of a flow
-  """
-  defstruct uuid: nil,
-            label: nil,
-            tag: nil,
-            destination_block: nil,
-            semantic_label: nil,
-            test: nil,
-            config: %{}
-
-  @type t :: %__MODULE__{
-          uuid: binary,
-          label: FlowMachine.Resource.t(),
-          tag: String.t(),
-          destination_block: binary | nil,
-          semantic_label: String.t() | nil,
-          test: String.t() | nil,
-          config: map
-        }
-end
-
 defmodule FlowMachine.Block do
   @moduledoc """
   A block in a flow, the first block in a flow's
@@ -43,6 +20,6 @@ defmodule FlowMachine.Block do
           platform_metadata: map,
           type: String.t(),
           config: map,
-          exits: [FlowMachine.Block.Exit.t()]
+          exits: [FlowMachine.BlockExit.t()]
         }
 end
