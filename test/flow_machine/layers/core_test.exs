@@ -1,7 +1,7 @@
 defmodule FlowMachine.Layers.CoreTest do
   use ExUnit.Case
   alias FlowMachine.{Block, BlockExit, Context}
-  alias FlowMachine.Layers.Core.{Log, RunFlow, Case, Output}
+  alias FlowMachine.Core.{Log, RunFlow, Case, Output}
 
   test "log/2" do
     block_exit = %BlockExit{}

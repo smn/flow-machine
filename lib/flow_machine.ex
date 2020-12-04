@@ -3,16 +3,16 @@ defmodule FlowMachine do
   Documentation for `FlowMachine`.
   """
 
-  @doc """
-  Hello world.
+  def core do
+    quote do
+      require Logger
+      @type block :: FlowMachine.Block.t()
+      @type context :: FlowMachine.Context.t()
+      @type block_exit :: binary
+    end
+  end
 
-  ## Examples
-
-      iex> FlowMachine.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defmacro __using__(which) when is_atom(which) do
+    apply(__MODULE__, which, [])
   end
 end

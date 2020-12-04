@@ -1,5 +1,5 @@
-defmodule FlowMachine.Layers.Core.Case do
-  use FlowMachine.Layers, :core
+defmodule FlowMachine.Core.Case do
+  use FlowMachine, :core
 
   @spec case_(block, context) :: {:ok, block_exit, context}
   def case_(%{exits: exits}, context) do

@@ -1,5 +1,5 @@
-defmodule FlowMachine.Layers.Core.Log do
-  use FlowMachine.Layers, :core
+defmodule FlowMachine.Core.Log do
+  use FlowMachine, :core
 
   @spec log(block, context) :: {:ok, block_exit, context}
   def log(%{exits: [next_exit], config: config}, context) do

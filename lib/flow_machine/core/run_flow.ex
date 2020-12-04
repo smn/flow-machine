@@ -1,5 +1,5 @@
-defmodule FlowMachine.Layers.Core.RunFlow do
-  use FlowMachine.Layers, :core
+defmodule FlowMachine.Core.RunFlow do
+  use FlowMachine, :core
 
   @spec run_flow(block, context) :: {:ok, block_exit, context}
   def run_flow(%{exits: [first_exit | _]}, context) do

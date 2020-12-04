@@ -1,5 +1,5 @@
-defmodule FlowMachine.Layers.Core.Output do
-  use FlowMachine.Layers, :core
+defmodule FlowMachine.Core.Output do
+  use FlowMachine, :core
 
   @spec output(block, context) :: {:ok, block_exit, context}
   def output(%{exits: [only_exit], config: %{value: expression}}, %{interactions: interactions} = context) do
