@@ -3,6 +3,8 @@ defmodule FlowMachine.Block do
   A block in a flow, the first block in a flow's
   blocks list is the starting point of a flow
   """
+  use FlowMachine.SpecLoader
+
   defstruct uuid: nil,
             name: nil,
             label: nil,
@@ -22,4 +24,13 @@ defmodule FlowMachine.Block do
           config: map,
           exits: [FlowMachine.BlockExit.t()]
         }
+
+  def load_key("uuid", value), do: {:ok, uuid: value}
+  def load_key("config", value), do: {:ok, config: value}
+  def load_key("exits", value), do: {:ok, exits: Enum.map(value, &FlowMachine.BlockExit.load/1)}
+  def load_key("name", value), do: {:ok, name: value}
+  def load_key("label", value), do: {:ok, label: value}
+  def load_key("semanticLabel", value), do: {:ok, semantic_label: value}
+  def load_key("platformMetadata", value), do: {:ok, platform_metadata: value}
+  def load_key("type", value), do: {:ok, type: value}
 end

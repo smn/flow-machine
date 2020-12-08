@@ -5,6 +5,8 @@ defmodule FlowMachine.Context do
   any interactive interaction and resume exactly where one left off.
   The context object is all one needs, and it's 100% JSON-serializable.
   """
+  use FlowMachine.SpecLoader
+
   defstruct id: nil,
             created_at: nil,
             entry_at: nil,
@@ -48,4 +50,36 @@ defmodule FlowMachine.Context do
           platform_metadata: map,
           logs: map
         }
+
+  def load_key("id", value), do: {:ok, id: value}
+
+  def load_key("createdAt", value),
+    do: {:ok, created_at: FlowMachine.Helpers.from_iso8601!(value)}
+
+  def load_key("contact", value), do: {:ok, contact: FlowMachine.Contact.load(value)}
+  def load_key("cursor", value), do: {:ok, cursor: FlowMachine.Cursor.load(value)}
+  def load_key("deliveryStatus", value), do: {:ok, delivery_status: value}
+
+  def load_key("entryAt", value),
+    do: {:ok, entry_at: FlowMachine.Helpers.from_iso8601!(value)}
+
+  def load_key("firstFlowId", value), do: {:ok, first_flow_id: value}
+  def load_key("flows", value), do: {:ok, flows: Enum.map(value, &FlowMachine.Flow.load/1)}
+
+  def load_key("interactions", value),
+    do: {:ok, interactions: Enum.map(value, &FlowMachine.BlockInteraction.load/1)}
+
+  def load_key("languageId", value), do: {:ok, language_id: value}
+  def load_key("mode", value), do: {:ok, mode: value}
+
+  def load_key("nestedFlowBlockInteractionIdStack", value),
+    do: {:ok, nested_flow_block_interaction_id_stack: value}
+
+  def load_key("platformMetadata", value), do: {:ok, platform_metadata: value}
+
+  def load_key("resources", value),
+    do: {:ok, resources: Enum.map(value, &FlowMachine.Resource.load/1)}
+
+  def load_key("sessionVars", value), do: {:ok, session_vars: value}
+  def load_key("userId", value), do: {:ok, user_id: value}
 end

@@ -1,4 +1,6 @@
 defmodule FlowMachine.BlockExit do
+  use FlowMachine.SpecLoader
+
   @moduledoc """
   An exit out of a flow
   """
@@ -21,4 +23,13 @@ defmodule FlowMachine.BlockExit do
           config: map,
           default: bool | nil
         }
+
+  def load_key("uuid", value), do: {:ok, uuid: value}
+  def load_key("label", value), do: {:ok, label: value}
+  def load_key("tag", value), do: {:ok, tag: value}
+  def load_key("destinationBlock", value), do: {:ok, destination_block: value}
+  def load_key("semanticLabel", value), do: {:ok, semantic_label: value}
+  def load_key("test", value), do: {:ok, test: value}
+  def load_key("config", value), do: {:ok, config: value}
+  def load_key("default", value), do: {:ok, default: value}
 end

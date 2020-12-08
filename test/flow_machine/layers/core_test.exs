@@ -54,12 +54,16 @@ defmodule FlowMachine.Layers.CoreTest do
       }
     }
 
-    assert {:ok, ^block_exit, ctx} = Output.output(block, %{interactions: [], contact: %{age: 20}})
+    assert {:ok, ^block_exit, ctx} =
+             Output.output(block, %{interactions: [], contact: %{age: 20}})
+
     assert %{
       contact: %{age: 20},
-      interactions: [%FlowMachine.BlockInteraction{
-        value: "Next year you are 21 years old"
-      }]
+      interactions: [
+        %FlowMachine.BlockInteraction{
+          value: "Next year you are 21 years old"
+        }
+      ]
     }
   end
 end
