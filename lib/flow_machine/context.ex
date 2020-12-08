@@ -7,14 +7,17 @@ defmodule FlowMachine.Context do
   """
   use FlowMachine.SpecLoader
 
-  defstruct id: nil,
+  defstruct uuid: nil,
+            id: nil,
             created_at: nil,
             entry_at: nil,
             exit_at: nil,
+            description: nil,
             delivery_status: nil,
             user_id: nil,
             org_id: nil,
             mode: nil,
+            name: nil,
             language_id: nil,
             contact: nil,
             session_vars: %{},
@@ -26,17 +29,21 @@ defmodule FlowMachine.Context do
             first_flow_id: nil,
             resources: %{},
             platform_metadata: %{},
-            logs: %{}
+            logs: %{},
+            specification_version: nil
 
   @type t :: %__MODULE__{
+          uuid: binary | nil,
           id: binary,
           created_at: DateTime.t(),
           entry_at: DateTime.t() | nil,
           exit_at: DateTime.t() | nil,
+          description: binary | nil,
           delivery_status: binary,
           user_id: binary | nil,
           org_id: binary | nil,
           mode: binary,
+          name: binary | nil,
           language_id: binary,
           contact: FlowMachine.Contact.t(),
           session_vars: map,
@@ -48,7 +55,8 @@ defmodule FlowMachine.Context do
           first_flow_id: binary,
           resources: FlowMachine.Resource.t(),
           platform_metadata: map,
-          logs: map
+          logs: map,
+          specification_version: binary | nil
         }
 
   def load_key("id", value), do: {:ok, id: value}
@@ -76,10 +84,28 @@ defmodule FlowMachine.Context do
     do: {:ok, nested_flow_block_interaction_id_stack: value}
 
   def load_key("platformMetadata", value), do: {:ok, platform_metadata: value}
+  # Odd fixture?
+  def load_key("platform_metadata", value), do: {:ok, platform_metadata: value}
 
   def load_key("resources", value),
     do: {:ok, resources: Enum.map(value, &FlowMachine.Resource.load/1)}
 
   def load_key("sessionVars", value), do: {:ok, session_vars: value}
   def load_key("userId", value), do: {:ok, user_id: value}
+  def load_key("reversibleOperations", value), do: {:ok, reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
+  # These seem to be out of spec but in the fixtures
+  def load_key("description", value), do: {:ok, description: value}
+  def load_key("name", value), do: {:ok, name: value}
+  def load_key("specification_version", value), do: {:ok, specification_version: value}
+  def load_key("uuid", value), do: {:ok, uuid: value}
+  def load_key("orgId", value), do: {:ok, org_id: value}
+  def load_key("logs", value),
+    do:
+      {:ok,
+       logs:
+         value
+         |> Enum.map(fn {key, value} ->
+           {FlowMachine.Helpers.from_iso8601!(key), value}
+         end)
+         |> Enum.into(%{})}
 end

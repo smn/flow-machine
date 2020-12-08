@@ -4,7 +4,9 @@ defmodule FlowMachine.Flow do
   """
   use FlowMachine.SpecLoader
 
-  defstruct uuid: nil,
+  defstruct id: nil,
+            org_id: nil,
+            uuid: nil,
             name: nil,
             label: nil,
             last_modified: nil,
@@ -20,6 +22,8 @@ defmodule FlowMachine.Flow do
             sessions: []
 
   @type t :: %__MODULE__{
+          id: binary | nil,
+          org_id: binary | nil,
           uuid: binary,
           name: binary,
           label: binary | nil,
@@ -33,7 +37,7 @@ defmodule FlowMachine.Flow do
           exit_block_id: binary,
           icon_color: binary | nil,
           run_count: number,
-          sessions: [FlowMachine.Session.t]
+          sessions: [FlowMachine.Session.t()]
         }
 
   def load_key("uuid", value), do: {:ok, uuid: value}
@@ -61,7 +65,14 @@ defmodule FlowMachine.Flow do
 
   def load_key("iconColor", value), do: {:ok, icon_color: value}
 
-  def load_key("resources", value), do: {:ok, resources: Enum.map(value, &FlowMachine.Resource.load/1)}
+  def load_key("resources", value),
+    do: {:ok, resources: Enum.map(value, &FlowMachine.Resource.load/1)}
+
   def load_key("runCount", value), do: {:ok, run_count: value}
-  def load_key("sessions", value), do: {:ok, sessions: Enum.map(value, &FlowMachine.Session.load/1)}
+
+  def load_key("sessions", value),
+    do: {:ok, sessions: Enum.map(value, &FlowMachine.Session.load/1)}
+
+  def load_key("id", value), do: {:ok, id: value}
+  def load_key("orgId", value), do: {:ok, org_id: value}
 end

@@ -1,11 +1,11 @@
-defmodule FlowMachine.ContextTest do
+defmodule FlowMachine.FlowTest do
   use ExUnit.Case
-  doctest FlowMachine.Context
-  alias FlowMachine.Context
+  doctest FlowMachine.Flow
+  alias FlowMachine.Flow
 
   def find_fixtures!(_ctx) do
     json_fixtures =
-      Application.app_dir(:flow_machine, "priv/fixtures/contexts/*.json")
+      Application.app_dir(:flow_machine, "priv/fixtures/flows/*.json")
       |> Path.wildcard()
       |> Enum.map(fn path ->
          path
@@ -22,7 +22,7 @@ defmodule FlowMachine.ContextTest do
     test "sample fixtures", %{json_fixtures: json_fixtures} do
       json_fixtures
       |> Enum.each(fn fixture ->
-        assert Context.load(fixture)
+        assert Flow.load(fixture)
       end)
     end
   end

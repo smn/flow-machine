@@ -9,6 +9,7 @@ defmodule FlowMachine.ReversibleOperation do
   `forward` & `reverse` should be something akin to
   sp2's `NonBreakingUpdateOperation`
   """
+  use FlowMachine.SpecLoader
 
   defstruct interaction_id: nil, forward: nil, reverse: nil
 
@@ -17,4 +18,8 @@ defmodule FlowMachine.ReversibleOperation do
           forward: map,
           reverse: map
         }
+
+  def load_key("interactionID", value), do: {:ok, interaction_id: value}
+  def load_key("forward", value), do: {:ok, forward: value}
+  def load_key("reverse", value), do: {:ok, reverse: value}
 end

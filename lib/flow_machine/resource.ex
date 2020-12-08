@@ -8,14 +8,20 @@ defmodule FlowMachine.Resource do
   defstruct uuid: nil,
             # text: %{},
             # audio: %{},
-            values: []
+            values: [],
+            org_id: nil,
+            column_count: nil,
+            flow_id: nil
 
   # @type text_resource :: map()
   # @type audio_resource :: map()
 
   @type t :: %__MODULE__{
           uuid: binary,
-          values: [any]
+          values: [FlowMachine.ResourceDefinition.t()],
+          org_id: binary,
+          column_count: integer,
+          flow_id: binary
           # the documented flow spec suggests this format but
           # the implementation seems to differ from this with a
           # values field
@@ -24,5 +30,11 @@ defmodule FlowMachine.Resource do
         }
 
   def load_key("uuid", uuid), do: {:ok, [uuid: uuid]}
-  def load_key("values", values), do: {:ok, [values: values]}
+
+  def load_key("values", values),
+    do: {:ok, [values: Enum.map(values, &FlowMachine.ResourceDefinition.load/1)]}
+
+    def load_key("columnCount", value), do: {:ok, column_count: value}
+    def load_key("flowId", value), do: {:ok, flow_id: value}
+    def load_key("orgId", value), do: {:ok, org_id: value}
 end

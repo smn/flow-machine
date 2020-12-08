@@ -14,7 +14,9 @@ defmodule FlowMachine.SpecLoader do
       @spec load_key(spec_key, spec_value) ::
               {:ok, [{atom, spec_value}]}
               | {:error, atom}
-      def load_key(key, value), do: {:error, :not_implemented}
+      def load_key(key, value), do: {:error, "load_key/2 not implemented for #{inspect(key)}"}
+
+      # def load_key(key, value, impl), do: {:error, "load_key/3 not implemented for #{inspect key}"}
       defoverridable(load_key: 2)
     end
   end
@@ -24,7 +26,12 @@ defmodule FlowMachine.SpecLoader do
     |> Enum.reduce(
       struct(mod),
       fn {key, value}, impl ->
-        {:ok, values} = mod.load_key(key, value)
+        {:ok, values} =
+          if function_exported?(mod, :load_key, 3) do
+            mod.load_key(key, value, impl)
+          else
+            mod.load_key(key, value)
+          end
 
         values
         |> Enum.reduce(impl, fn {key, value}, impl ->

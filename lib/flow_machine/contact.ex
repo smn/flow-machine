@@ -12,6 +12,20 @@ defmodule FlowMachine.Contact do
 
   def load_key("id", value), do: {:ok, id: value}
 
-  def load_key("properties", value),
-    do: {:ok, properties: FlowMachine.ContactProperty.load(value)}
+  # def load_key("properties", value),
+  #   do: {:ok, properties: FlowMachine.ContactProperty.load(value)}
+  def load_key(key, value, ctx) do
+    now = DateTime.utc_now()
+
+    {:ok,
+     properties: [
+       %FlowMachine.ContactProperty{
+         contact_property_field_name: key,
+         value: value,
+         created_at: now,
+         updated_at: now
+       }
+       | ctx.properties
+     ]}
+  end
 end

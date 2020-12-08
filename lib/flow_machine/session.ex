@@ -4,4 +4,5 @@ defmodule FlowMachine.Session do
   defstruct []
 
   @type t :: %__MODULE__{}
+  def load_key(_, _), do: {:error, :not_implemented}
 end
