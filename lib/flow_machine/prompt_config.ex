@@ -1,5 +1,6 @@
 defmodule FlowMachine.PromptConfig do
   @moduledoc false
+  use FlowMachine.SpecLoader
 
   defstruct kind: nil,
             is_response_required: nil,
@@ -22,33 +23,19 @@ defmodule FlowMachine.PromptConfig do
           ]
         }
 
-  @spec load(map) :: {:ok, t} | {:error, atom}
-  def load(map) do
-    map
-    |> Enum.reduce(%__MODULE__{}, fn
-      {"kind", value}, prompt_config ->
-        %{prompt_config | kind: value}
+      def load_key("kind", value, _prompt_config), do: {:ok, kind: value}
 
-      {"isResponseRequired", value}, prompt_config ->
-        %{prompt_config | is_response_required: value}
+      def load_key("isResponseRequired", value, _prompt_config), do: {:ok, is_response_required: value}
 
-      {"prompt", value}, prompt_config ->
-        %{prompt_config | prompt: value}
+      def load_key("prompt", value, _prompt_config), do: {:ok, prompt: value}
 
-      {"value", value}, prompt_config ->
-        %{prompt_config | value: value}
+      def load_key("value", value, _prompt_config), do: {:ok, value: value}
 
-      {"choices", value}, prompt_config ->
-        %{
-          prompt_config
-          | choices:
+      def load_key("choices", value, _prompt_config), do: {:ok, choices:
               Enum.map(value, fn %{"key" => key, "value" => value} ->
                 %{key: key, value: value}
               end)
         }
 
-      {"isSubmitted", value}, prompt_config ->
-        %{prompt_config | is_submitted: value}
-    end)
-  end
+      def load_key("isSubmitted", value, _prompt_config), do: {:ok, is_submitted: value}
 end

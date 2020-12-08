@@ -25,12 +25,12 @@ defmodule FlowMachine.Block do
           exits: [FlowMachine.BlockExit.t()]
         }
 
-  def load_key("uuid", value), do: {:ok, uuid: value}
-  def load_key("config", value), do: {:ok, config: value}
-  def load_key("exits", value), do: {:ok, exits: Enum.map(value, &FlowMachine.BlockExit.load/1)}
-  def load_key("name", value), do: {:ok, name: value}
-  def load_key("label", value), do: {:ok, label: value}
-  def load_key("semanticLabel", value), do: {:ok, semantic_label: value}
-  def load_key("platformMetadata", value), do: {:ok, platform_metadata: value}
-  def load_key("type", value), do: {:ok, type: value}
+  def load_key("uuid", value, _block), do: {:ok, uuid: value}
+  def load_key("config", value, _block), do: {:ok, config: value}
+  def load_key("exits", value, _block), do: {:ok, exits: Enum.map(value, &FlowMachine.BlockExit.load/1)}
+  def load_key("name", value, _block), do: {:ok, name: value}
+  def load_key("label", value, _block), do: {:ok, label: value}
+  def load_key("semanticLabel", value, _block), do: {:ok, semantic_label: value}
+  def load_key("platformMetadata", value, _block), do: {:ok, platform_metadata: value}
+  def load_key("type", value, _block), do: {:ok, type: value}
 end

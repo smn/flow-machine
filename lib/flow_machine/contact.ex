@@ -14,7 +14,7 @@ defmodule FlowMachine.Contact do
 
   # def load_key("properties", value),
   #   do: {:ok, properties: FlowMachine.ContactProperty.load(value)}
-  def load_key(key, value, ctx) do
+  def load_key(key, value, contact) do
     now = DateTime.utc_now()
 
     {:ok,
@@ -25,7 +25,7 @@ defmodule FlowMachine.Contact do
          created_at: now,
          updated_at: now
        }
-       | ctx.properties
+       | contact.properties
      ]}
   end
 end

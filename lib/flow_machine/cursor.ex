@@ -10,8 +10,8 @@ defmodule FlowMachine.Cursor do
           prompt_config: FlowMachine.PromptConfig.t()
         }
 
-  def load_key("interactionId", value), do: {:ok, interaction_id: value}
+  def load_key("interactionId", value, _cursor), do: {:ok, interaction_id: value}
 
-  def load_key("promptConfig", value),
+  def load_key("promptConfig", value, _cursor),
     do: {:ok, prompt_config: FlowMachine.PromptConfig.load(value)}
 end
