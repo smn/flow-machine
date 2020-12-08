@@ -24,12 +24,12 @@ defmodule FlowMachine.BlockExit do
           default: bool | nil
         }
 
-  def load_key("uuid", value, _block_exit), do: {:ok, uuid: value}
-  def load_key("label", value, _block_exit), do: {:ok, label: value}
-  def load_key("tag", value, _block_exit), do: {:ok, tag: value}
-  def load_key("destinationBlock", value, _block_exit), do: {:ok, destination_block: value}
-  def load_key("semanticLabel", value, _block_exit), do: {:ok, semantic_label: value}
-  def load_key("test", value, _block_exit), do: {:ok, test: value}
-  def load_key("config", value, _block_exit), do: {:ok, config: value}
-  def load_key("default", value, _block_exit), do: {:ok, default: value}
+  def load_key(_block_exit, "uuid", value), do: {:ok, uuid: value}
+  def load_key(_block_exit, "label", value), do: {:ok, label: value}
+  def load_key(_block_exit, "tag", value), do: {:ok, tag: value}
+  def load_key(_block_exit, "destinationBlock", value), do: {:ok, destination_block: value}
+  def load_key(_block_exit, "semanticLabel", value), do: {:ok, semantic_label: value}
+  def load_key(_block_exit, "test", value), do: {:ok, test: value}
+  def load_key(_block_exit, "config", value), do: {:ok, config: value}
+  def load_key(_block_exit, "default", value), do: {:ok, default: value}
 end

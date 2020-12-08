@@ -29,12 +29,12 @@ defmodule FlowMachine.Resource do
           # audio: audio_resource
         }
 
-  def load_key("uuid", uuid, _resource), do: {:ok, [uuid: uuid]}
+  def load_key(_resource, "uuid", uuid), do: {:ok, [uuid: uuid]}
 
-  def load_key("values", values, _resource),
+  def load_key(_resource, "values", values),
     do: {:ok, [values: Enum.map(values, &FlowMachine.ResourceDefinition.load/1)]}
 
-    def load_key("columnCount", value, _resource), do: {:ok, column_count: value}
-    def load_key("flowId", value, _resource), do: {:ok, flow_id: value}
-    def load_key("orgId", value, _resource), do: {:ok, org_id: value}
+    def load_key(_resource, "columnCount", value), do: {:ok, column_count: value}
+    def load_key(_resource, "flowId", value), do: {:ok, flow_id: value}
+    def load_key(_resource, "orgId", value), do: {:ok, org_id: value}
 end

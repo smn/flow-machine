@@ -26,14 +26,14 @@ defmodule FlowMachine.ResourceDefinition do
           org_id: binary | nil
         }
 
-  def load_key("uuid", value, _resource_definition), do: {:ok, uuid: value}
-  def load_key("languageId", value, _resource_definition), do: {:ok, language_id: value}
-  def load_key("contentType", value, _resource_definition), do: {:ok, content_type: value}
-  def load_key("modes", value, _resource_definition), do: {:ok, modes: value}
-  def load_key("value", value, _resource_definition), do: {:ok, value: value}
-  def load_key("fileName", value, _resource_definition), do: {:ok, file_name: value}
-  def load_key("hasBeenFetched", value, _resource_definition), do: {:ok, has_been_fetched: value}
-  def load_key("resourceUuid", value, _resource_definition), do: {:ok, resource_uuid: value}
-  def load_key("columnCount", value, _resource_definition), do: {:ok, column_count: value}
-  def load_key("orgId", value, _resource_definition), do: {:ok, org_id: value}
+  def load_key(_resource_definition, "uuid", value), do: {:ok, uuid: value}
+  def load_key(_resource_definition, "languageId", value), do: {:ok, language_id: value}
+  def load_key(_resource_definition, "contentType", value), do: {:ok, content_type: value}
+  def load_key(_resource_definition, "modes", value), do: {:ok, modes: value}
+  def load_key(_resource_definition, "value", value), do: {:ok, value: value}
+  def load_key(_resource_definition, "fileName", value), do: {:ok, file_name: value}
+  def load_key(_resource_definition, "hasBeenFetched", value), do: {:ok, has_been_fetched: value}
+  def load_key(_resource_definition, "resourceUuid", value), do: {:ok, resource_uuid: value}
+  def load_key(_resource_definition, "columnCount", value), do: {:ok, column_count: value}
+  def load_key(_resource_definition, "orgId", value), do: {:ok, org_id: value}
 end

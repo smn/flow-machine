@@ -19,7 +19,7 @@ defmodule FlowMachine.ReversibleOperation do
           reverse: map
         }
 
-  def load_key("interactionID", value, _reversible_operation), do: {:ok, interaction_id: value}
-  def load_key("forward", value, _reversible_operation), do: {:ok, forward: value}
-  def load_key("reverse", value, _reversible_operation), do: {:ok, reverse: value}
+  def load_key(_reversible_operation, "interactionID", value), do: {:ok, interaction_id: value}
+  def load_key(_reversible_operation, "forward", value), do: {:ok, forward: value}
+  def load_key(_reversible_operation, "reverse", value), do: {:ok, reverse: value}
 end

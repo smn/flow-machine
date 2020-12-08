@@ -59,47 +59,47 @@ defmodule FlowMachine.Context do
           specification_version: binary | nil
         }
 
-  def load_key("id", value, _context), do: {:ok, id: value}
+  def load_key(_context, "id", value), do: {:ok, id: value}
 
-  def load_key("createdAt", value, _context),
+  def load_key(_context, "createdAt", value),
     do: {:ok, created_at: FlowMachine.Helpers.from_iso8601!(value)}
 
-  def load_key("contact", value, _context), do: {:ok, contact: FlowMachine.Contact.load(value)}
-  def load_key("cursor", value, _context), do: {:ok, cursor: FlowMachine.Cursor.load(value)}
-  def load_key("deliveryStatus", value, _context), do: {:ok, delivery_status: value}
+  def load_key(_context, "contact", value), do: {:ok, contact: FlowMachine.Contact.load(value)}
+  def load_key(_context, "cursor", value), do: {:ok, cursor: FlowMachine.Cursor.load(value)}
+  def load_key(_context, "deliveryStatus", value), do: {:ok, delivery_status: value}
 
-  def load_key("entryAt", value, _context),
+  def load_key(_context, "entryAt", value),
     do: {:ok, entry_at: FlowMachine.Helpers.from_iso8601!(value)}
 
-  def load_key("firstFlowId", value, _context), do: {:ok, first_flow_id: value}
-  def load_key("flows", value, _context), do: {:ok, flows: Enum.map(value, &FlowMachine.Flow.load/1)}
+  def load_key(_context, "firstFlowId", value), do: {:ok, first_flow_id: value}
+  def load_key(_context, "flows", value), do: {:ok, flows: Enum.map(value, &FlowMachine.Flow.load/1)}
 
-  def load_key("interactions", value, _context),
+  def load_key(_context, "interactions", value),
     do: {:ok, interactions: Enum.map(value, &FlowMachine.BlockInteraction.load/1)}
 
-  def load_key("languageId", value, _context), do: {:ok, language_id: value}
-  def load_key("mode", value, _context), do: {:ok, mode: value}
+  def load_key(_context, "languageId", value), do: {:ok, language_id: value}
+  def load_key(_context, "mode", value), do: {:ok, mode: value}
 
-  def load_key("nestedFlowBlockInteractionIdStack", value, _context),
+  def load_key(_context, "nestedFlowBlockInteractionIdStack", value),
     do: {:ok, nested_flow_block_interaction_id_stack: value}
 
-  def load_key("platformMetadata", value, _context), do: {:ok, platform_metadata: value}
+  def load_key(_context, "platformMetadata", value), do: {:ok, platform_metadata: value}
   # Odd fixture?
-  def load_key("platform_metadata", value, _context), do: {:ok, platform_metadata: value}
+  def load_key(_context, "platform_metadata", value), do: {:ok, platform_metadata: value}
 
-  def load_key("resources", value, _context),
+  def load_key(_context, "resources", value),
     do: {:ok, resources: Enum.map(value, &FlowMachine.Resource.load/1)}
 
-  def load_key("sessionVars", value, _context), do: {:ok, session_vars: value}
-  def load_key("userId", value, _context), do: {:ok, user_id: value}
-  def load_key("reversibleOperations", value, _context), do: {:ok, reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
+  def load_key(_context, "sessionVars", value), do: {:ok, session_vars: value}
+  def load_key(_context, "userId", value), do: {:ok, user_id: value}
+  def load_key(_context, "reversibleOperations", value), do: {:ok, reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
   # These seem to be out of spec but in the fixtures
-  def load_key("description", value, _context), do: {:ok, description: value}
-  def load_key("name", value, _context), do: {:ok, name: value}
-  def load_key("specification_version", value, _context), do: {:ok, specification_version: value}
-  def load_key("uuid", value, _context), do: {:ok, uuid: value}
-  def load_key("orgId", value, _context), do: {:ok, org_id: value}
-  def load_key("logs", value, _context),
+  def load_key(_context, "description", value), do: {:ok, description: value}
+  def load_key(_context, "name", value), do: {:ok, name: value}
+  def load_key(_context, "specification_version", value), do: {:ok, specification_version: value}
+  def load_key(_context, "uuid", value), do: {:ok, uuid: value}
+  def load_key(_context, "orgId", value), do: {:ok, org_id: value}
+  def load_key(_context, "logs", value),
     do:
       {:ok,
        logs:
