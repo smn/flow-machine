@@ -1,26 +1,11 @@
 defmodule FlowMachine.ContextTest do
   use ExUnit.Case
   doctest FlowMachine.Context
-  alias FlowMachine.Context
-
-  def find_fixtures!(_ctx) do
-    json_fixtures =
-      Application.app_dir(:flow_machine, "priv/fixtures/contexts/*.json")
-      |> Path.wildcard()
-      |> Enum.map(fn path ->
-         path
-         |> File.read!()
-         |> Jason.decode!()
-      end)
-
-    {:ok, json_fixtures: json_fixtures}
-  end
+  alias FlowMachine.{Context, TestHelpers}
 
   describe "parsing" do
-    setup :find_fixtures!
-
-    test "sample fixtures", %{json_fixtures: json_fixtures} do
-      json_fixtures
+    test "sample fixtures"do
+      TestHelpers.list_fixtures("priv/fixtures/contexts/*.json")
       |> Enum.each(fn fixture ->
         assert Context.load(fixture)
       end)

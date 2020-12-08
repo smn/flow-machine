@@ -72,7 +72,9 @@ defmodule FlowMachine.Context do
     do: {:ok, entry_at: FlowMachine.Helpers.from_iso8601!(value)}
 
   def load_key(_context, "firstFlowId", value), do: {:ok, first_flow_id: value}
-  def load_key(_context, "flows", value), do: {:ok, flows: Enum.map(value, &FlowMachine.Flow.load/1)}
+
+  def load_key(_context, "flows", value),
+    do: {:ok, flows: Enum.map(value, &FlowMachine.Flow.load/1)}
 
   def load_key(_context, "interactions", value),
     do: {:ok, interactions: Enum.map(value, &FlowMachine.BlockInteraction.load/1)}
@@ -92,13 +94,17 @@ defmodule FlowMachine.Context do
 
   def load_key(_context, "sessionVars", value), do: {:ok, session_vars: value}
   def load_key(_context, "userId", value), do: {:ok, user_id: value}
-  def load_key(_context, "reversibleOperations", value), do: {:ok, reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
+
+  def load_key(_context, "reversibleOperations", value),
+    do: {:ok, reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
+
   # These seem to be out of spec but in the fixtures
   def load_key(_context, "description", value), do: {:ok, description: value}
   def load_key(_context, "name", value), do: {:ok, name: value}
   def load_key(_context, "specification_version", value), do: {:ok, specification_version: value}
   def load_key(_context, "uuid", value), do: {:ok, uuid: value}
   def load_key(_context, "orgId", value), do: {:ok, org_id: value}
+
   def load_key(_context, "logs", value),
     do:
       {:ok,

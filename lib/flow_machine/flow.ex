@@ -57,7 +57,8 @@ defmodule FlowMachine.Flow do
 
   def load_key(_flow, "languages", value), do: {:ok, languages: value}
 
-  def load_key(_flow, "blocks", value), do: {:ok, blocks: Enum.map(value, &FlowMachine.Block.load/1)}
+  def load_key(_flow, "blocks", value),
+    do: {:ok, blocks: Enum.map(value, &FlowMachine.Block.load/1)}
 
   def load_key(_flow, "exitBlockId", value), do: {:ok, exit_block_id: value}
 

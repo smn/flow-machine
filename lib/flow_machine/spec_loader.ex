@@ -14,7 +14,8 @@ defmodule FlowMachine.SpecLoader do
       @spec load_key(unquote(mod).t, spec_key, spec_value) ::
               {:ok, [{atom, spec_value}]}
               | {:error, atom}
-      def load_key(impl, key, value), do: {:error, "#{unquote(mod)}.load_key/3 not implemented for #{inspect(key)}"}
+      def load_key(impl, key, value),
+        do: {:error, "#{unquote(mod)}.load_key/3 not implemented for #{inspect(key)}"}
 
       defoverridable(load_key: 3)
     end

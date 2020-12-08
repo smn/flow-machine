@@ -34,7 +34,7 @@ defmodule FlowMachine.Resource do
   def load_key(_resource, "values", values),
     do: {:ok, [values: Enum.map(values, &FlowMachine.ResourceDefinition.load/1)]}
 
-    def load_key(_resource, "columnCount", value), do: {:ok, column_count: value}
-    def load_key(_resource, "flowId", value), do: {:ok, flow_id: value}
-    def load_key(_resource, "orgId", value), do: {:ok, org_id: value}
+  def load_key(_resource, "columnCount", value), do: {:ok, column_count: value}
+  def load_key(_resource, "flowId", value), do: {:ok, flow_id: value}
+  def load_key(_resource, "orgId", value), do: {:ok, org_id: value}
 end

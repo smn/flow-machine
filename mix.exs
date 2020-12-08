@@ -6,6 +6,7 @@ defmodule FlowMachine.MixProject do
       app: :flow_machine,
       version: "0.1.0",
       elixir: "~> 1.10",
+      elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: [plt_add_apps: [:ex_unit, :mix], ignore_warnings: "config/dialyzer.ignore"]
@@ -19,6 +20,9 @@ defmodule FlowMachine.MixProject do
       mod: {FlowMachine.Application, []}
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
