@@ -1,11 +1,12 @@
 defmodule FlowMachine.ContextTest do
   use ExUnit.Case
   doctest FlowMachine.Context
-  alias FlowMachine.{Context, TestHelpers}
+  import FlowMachine.TestHelpers
+  alias FlowMachine.Context
 
   describe "parsing" do
-    test "sample fixtures"do
-      TestHelpers.list_fixtures("priv/fixtures/contexts/*.json")
+    test "sample fixtures" do
+      list_fixtures("priv/fixtures/contexts/*.json")
       |> Enum.each(fn fixture ->
         assert Context.load(fixture)
       end)

@@ -1,0 +1,3008 @@
+	{
+		"uuid": "5b8c87d6-de90-4bc4-8668-4f04000067d4",
+		"name": "Flow Interop Flow Demo",
+		"label": "",
+		"last_modified": "2020-12-09 03:59:26.000000+00:00",
+		"interaction_timeout": 172800,
+		"supported_modes": [
+			"sms",
+			"text",
+			"rich_messaging",
+			"facebook_messenger"
+		],
+		"languages": [
+			{
+				"id": "209011",
+				"name": "English",
+				"abbreviation": "EN",
+				"org_id": "962482863901507584",
+				"right_to_left": false,
+				"code": null,
+				"deleted_at": null
+			}
+		],
+		"platform_metadata": {
+			"io_viamo": {
+				"org_id": "962482863901507584",
+				"tree_id": "74030",
+				"version": 1
+			}
+		},
+		"blocks": [
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-92332ad131e9",
+				"name": "1607484593402_65",
+				"label": "Hi! Is this your first visit?",
+				"semantic_label": "",
+				"config": {
+					"choices": {
+						"Yes": "29841127-3247-4612-82af-238e4f4493fe",
+						"No": "29841127-3247-4617-8b25-887ba584bba5"
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-92332ad131e9"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MultipleChoiceQuestionBlock",
+						"custom_data": {
+							"title": "Hi! Is this your first visit?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"209011": false
+							},
+							"branching": 1,
+							"add_exit_for_no_response": 0,
+							"choices": [
+								"Yes",
+								"No"
+							],
+							"num_choices": 2,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 6,
+							"y_position": 36,
+							"num_connections": 2,
+							"output_names": [
+								"Yes",
+								"No"
+							],
+							"field_labels": [
+								1,
+								2
+							]
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Hi! Is this your first visit? Reply 1 for Yes, 2 for No."
+						},
+						"ussd_content": [],
+						"social_content": {
+							"209011": {
+								"text": "Hi! Is this your first visit?"
+							}
+						},
+						"clipboard_content": [],
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [
+							209011
+						],
+						"social_autogen_langs": [],
+						"clipboard_autogen_langs": [],
+						"js_key": "block_1607484593402_65"
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e6898f481",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f31a9f5fa",
+						"tag": "Yes",
+						"label": "29841127-3247-4610-8001-212e6898f481",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '1'), AND(channel.mode != 'ivr', OR(block.value = '1', LOWER(block.value) = 'yes'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e6898f482",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6ada095511",
+						"tag": "No",
+						"label": "29841127-3247-4610-8001-212e6898f482",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '2'), AND(channel.mode != 'ivr', OR(block.value = '2', LOWER(block.value) = 'no'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e6898f483",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e6898f483",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\SelectOneResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f31a9f5fa",
+				"name": "1520727402716_10",
+				"label": "Welcome Message",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f31a9f5fa"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Welcome Message",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"should_attach_file": true,
+							"branching": 1,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 233,
+							"y_position": 32,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Hey there @subscriber.[26417_first_name]! I'm Finn 🦊, a bot to help test out Flow Interoperability. I also love learning more about what ICT4D leaders need from Flow Interop."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727402716_10",
+						"social_content": {
+							"209011": {
+								"text": "Hey there @subscriber.[26417_first_name]! I'm Finn 🦊, a bot to help test out Flow Interoperability. I also love learning more about what ICT4D leaders need from Flow Interop."
+							},
+							"all_languages_file_url": "https://s3-us-west-2.amazonaws.com/audiofiles.votomobile.org/multimedia/5cad23a89d5f62.50509745.gif",
+							"all_languages_file_id": 210,
+							"all_languages_file_type": "image"
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Hey there @subscriber.[26417_first_name]! I'm Finn 🦊, a bot to help test out Flow Interoperability. I also love learning more about what ICT4D leaders need from Flow Interop."
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212ed4fafd01",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f320f3888",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212ed4fafd01",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f320f3888",
+				"name": "1520727469077_84",
+				"label": "How interested and excited are you for increased interoperability in ICT4D?",
+				"semantic_label": "",
+				"config": {
+					"choices": {
+						"🙄Not really": "29841127-3247-4616-82cc-fb38a14f1ca4",
+						"🙂Little bit": "29841127-3247-4611-8357-df24da2fc3ed",
+						"😃Lots": "29841127-3247-4610-8c2a-d24fd8ac410f",
+						"😍OMG YES": "29841127-3247-4615-87ed-a236d49968ac"
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f320f3888"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MultipleChoiceQuestionBlock",
+						"custom_data": {
+							"title": "How interested and excited are you for increased interoperability in ICT4D?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"branching": 1,
+							"add_exit_for_no_response": 0,
+							"choices": [
+								"🙄Not really",
+								"🙂Little bit",
+								"😃Lots",
+								"😍OMG YES"
+							],
+							"num_choices": 4,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 602,
+							"y_position": 36,
+							"num_connections": 4,
+							"output_names": [
+								"🙄Not really",
+								"🙂Little bit",
+								"😃Lots",
+								"😍OMG YES"
+							],
+							"field_labels": [
+								1,
+								2,
+								3,
+								4
+							]
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "How interested and excited are you for increased interoperability in ICT4D? Reply:\n- 1 for 🙄Not really, \n- 2 for 🙂Little bit, \n- 3 for 😃Lots, \n- 4 for 😍OMG YES."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727469077_84",
+						"social_content": {
+							"209011": {
+								"text": "How interested and excited are you for increased interoperability in ICT4D?"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "How interested and excited are you for increased interoperability in ICT4D?"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e079c4401",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f3326a61a",
+						"tag": "🙄Not really",
+						"label": "29841127-3247-4610-8001-212e079c4401",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '1'), AND(channel.mode != 'ivr', OR(block.value = '1', LOWER(block.value) = '🙄not really'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e079c4402",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f33791370",
+						"tag": "🙂Little bit",
+						"label": "29841127-3247-4610-8001-212e079c4402",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '2'), AND(channel.mode != 'ivr', OR(block.value = '2', LOWER(block.value) = '🙂little bit'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e079c4403",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f32eef489",
+						"tag": "😃Lots",
+						"label": "29841127-3247-4610-8001-212e079c4403",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '3'), AND(channel.mode != 'ivr', OR(block.value = '3', LOWER(block.value) = '😃lots'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e079c4404",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f32eef489",
+						"tag": "😍OMG YES",
+						"label": "29841127-3247-4610-8001-212e079c4404",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '4'), AND(channel.mode != 'ivr', OR(block.value = '4', LOWER(block.value) = '😍omg yes'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e079c4405",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e079c4405",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\SelectOneResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f32eef489",
+				"name": "1520727615704_41",
+				"label": "Yeah, me too! Gosh, I can't wait!",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f32eef489"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Yeah, me too! Gosh, I can't wait!",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 467,
+							"y_position": 216,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Yeah, me too! Gosh, I can't wait!"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727615704_41",
+						"social_content": {
+							"209011": {
+								"text": "Yeah, me too! Gosh, I can't wait!"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Yeah, me too! Gosh, I can't wait!"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e777a4481",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f795bf2f5",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e777a4481",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f3326a61a",
+				"name": "1520727652203_78",
+				"label": "Not really, huh? No worries. Hope we can find usefulness for you!",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f3326a61a"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Not really, huh? No worries. Hope we can find usefulness for you!",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 187,
+							"y_position": 216,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Not really, huh? No worries. Hope we can find usefulness for you!"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727652203_78",
+						"social_content": {
+							"209011": {
+								"text": "Not really, huh? No worries. Hope we can find usefulness for you!"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Not really, huh? No worries. Hope we can find usefulness for you!"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e93530d01",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f795bf2f5",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e93530d01",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f33791370",
+				"name": "1520727706223_20",
+				"label": "Cautiously optimistic, eh? I like you.",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f33791370"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Cautiously optimistic, eh? I like you.",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 325,
+							"y_position": 216,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Cautiously optimistic, eh? I like you."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727706223_20",
+						"social_content": {
+							"209011": {
+								"text": "Cautiously optimistic, eh? I like you."
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Cautiously optimistic, eh? I like you."
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212ebc89b801",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f795bf2f5",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212ebc89b801",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f3475830c",
+				"name": "1520727871659_64",
+				"label": "Most important capability?",
+				"semantic_label": "",
+				"config": {
+					"ivr": {
+						"max-duration-seconds": 60
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f3475830c"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "OpenQuestionBlock",
+						"custom_data": {
+							"title": "Most important capability?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 490,
+							"y_position": 427,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "What is the most important capability or consideration that you would need to get out of Flow Interop?"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727871659_64",
+						"social_content": {
+							"209011": {
+								"text": "What is the most important capability or consideration that you would need to get out of Flow Interop?"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "What is the most important capability or consideration that you would need to get out of Flow Interop?"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e3ac18601",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f34c251fc",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e3ac18601",
+						"semantic_label": "",
+						"test": "@(block.value != NULL)"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e3ac18602",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e3ac18602",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\OpenResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f34c251fc",
+				"name": "1520727921996_76",
+				"label": "Conclusion",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f34c251fc"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Conclusion",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 665,
+							"y_position": 430,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "OK, superstar! Thanks for the input! Have a great day, and we'll see you soon!"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727921996_76",
+						"social_content": {
+							"209011": {
+								"text": "OK, superstar! Thanks for the input! Have a great day, and we'll see you soon!"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "OK, superstar! Thanks for the input! Have a great day, and we'll see you soon!"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e6128fe01",
+						"destination_block": null,
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e6128fe01",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f795bf2f5",
+				"name": "1520739431185_81",
+				"label": "Where do you think Flow Interoperability support will be most useful?",
+				"semantic_label": "",
+				"config": {
+					"choices": {
+						"Content and telecoms": "29841127-3247-4610-87c4-342538d688ca",
+						"Crisis response times": "29841127-3247-4615-8063-65bcb0f9b2d8",
+						"Data understanding": "29841127-3247-461a-821a-0d905659d800"
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f795bf2f5"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MultipleChoiceQuestionBlock",
+						"custom_data": {
+							"title": "Where do you think Flow Interoperability support will be most useful?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"branching": 0,
+							"add_exit_for_no_response": 0,
+							"choices": [
+								"Content and telecoms",
+								"Crisis response times",
+								"Data understanding"
+							],
+							"num_choices": 1,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 31,
+							"y_position": 307,
+							"num_connections": 1,
+							"output_names": [
+								1
+							],
+							"field_labels": [
+								1
+							]
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Where do you think Flow Interoperability support will be most useful? Reply:\n- 1 for Reusing content and telecom/API connections across countries and channels\n- 2 for Reducing crisis response times in emergencies, through pre-existing data and gateway integrations\n- 3 for Deepening data understanding, by streamline data into data lakes and analysis systems"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520739431185_81",
+						"social_content": {
+							"209011": {
+								"text": "Where do you think Flow Interoperability support will be most useful?\n- Reusing content and telecom/API connections across countries and channels\n- Reducing crisis response times in emergencies, through pre-existing data and gateway integrations\n- Deepening data understanding, by streamline data into data lakes and analysis systems"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "- Reusing content and telecom/API connections across countries and channels\n- Reducing crisis response times in emergencies, through pre-existing data and gateway integrations\n- Deepening data understanding, by streamline data into data lakes and analysis systems"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212eadf97a81",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6ad944601c",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212eadf97a81",
+						"semantic_label": "",
+						"test": "@(block.value != NULL)"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212eadf97a82",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212eadf97a82",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\SelectOneResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ad944601c",
+				"name": "1521915163033_88",
+				"label": "Got it, thanks!",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a6ad944601c"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Got it, thanks!",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 180,
+							"y_position": 422,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Got it, thanks!"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915163033_88",
+						"social_content": {
+							"209011": {
+								"text": "Got it, thanks!"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Got it, thanks!"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212ea2300e01",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f32c106af",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212ea2300e01",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ada095511",
+				"name": "1521915292111_53",
+				"label": "Welcome back!",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a6ada095511"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Welcome back!",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"should_attach_file": true,
+							"branching": 1,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 3,
+							"y_position": 591,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Welcome back @subscriber.[26417_first_name]! It's good to hear from you again."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915292111_53",
+						"social_content": {
+							"209011": {
+								"text": "Welcome back @subscriber.[26417_first_name]! It's good to hear from you again."
+							},
+							"all_languages_file_url": "https://s3-us-west-2.amazonaws.com/audiofiles.votomobile.org/multimedia/5cad2663312d36.71163488.gif",
+							"all_languages_file_id": 211,
+							"all_languages_file_type": "image"
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Welcome back @subscriber.[26417_first_name]! It's good to hear from you again."
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e04aa8881",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6ada5862d0",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e04aa8881",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ada5862d0",
+				"name": "1521915343920_16",
+				"label": "How can I help out today?",
+				"semantic_label": "",
+				"config": {
+					"choices": {
+						"Know each other better": "29841127-3247-461d-8c2f-4c133f8ff000",
+						"Survey again": "29841127-3247-461d-8108-d12b5c380800",
+						"Tell me a joke": "29841127-3247-4618-836d-43952f26f000"
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a6ada5862d0"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MultipleChoiceQuestionBlock",
+						"custom_data": {
+							"title": "How can I help out today?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"branching": 1,
+							"add_exit_for_no_response": 0,
+							"choices": [
+								"Know each other better",
+								"Survey again",
+								"Tell me a joke"
+							],
+							"num_choices": 3,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 189,
+							"y_position": 591,
+							"num_connections": 3,
+							"output_names": [
+								"Know each other better",
+								"Survey again",
+								"Tell me a joke"
+							],
+							"field_labels": [
+								1,
+								2,
+								3
+							]
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "How can I help you out today? Reply:\n- 1 for We could get to know each other better?\n- 2 for Do you want to do the survey again?\n- 3 for Do you want to hear a joke?"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915343920_16",
+						"social_content": {
+							"209011": {
+								"text": "How can I help you out today?\n- We could get to know each other better?\n- Do you want to do the survey again?\n- Do you want to hear a joke?"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "- We could get to know each other better?\n- Do you want to do the survey again?\n- Do you want to hear a joke?"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e2c316801",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6add84e315",
+						"tag": "Know each other better",
+						"label": "29841127-3247-4610-8001-212e2c316801",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '1'), AND(channel.mode != 'ivr', OR(block.value = '1', LOWER(block.value) = 'know each other better'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e2c316802",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f320f3888",
+						"tag": "Survey again",
+						"label": "29841127-3247-4610-8001-212e2c316802",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '2'), AND(channel.mode != 'ivr', OR(block.value = '2', LOWER(block.value) = 'survey again'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e2c316803",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6adb851e30",
+						"tag": "Tell me a joke",
+						"label": "29841127-3247-4610-8001-212e2c316803",
+						"semantic_label": "",
+						"test": "@(OR(AND(channel.mode = 'ivr', block.value = '3'), AND(channel.mode != 'ivr', OR(block.value = '3', LOWER(block.value) = 'tell me a joke'))))"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e2c316804",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e2c316804",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\SelectOneResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6adb851e30",
+				"name": "1521915541007_84",
+				"label": "Joke",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a6adb851e30"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Joke",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 411,
+							"y_position": 785,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Oh dear... OK, here's one.  What's a bot's favorite pickup line?"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915541007_84",
+						"social_content": {
+							"209011": {
+								"text": "Oh dear... OK, here's one.  What's a bot's favorite pickup line?"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Oh dear... OK, here's one.  What's a bot's favorite pickup line?"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212ec28f1801",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6add3e7580",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212ec28f1801",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6add3e7580",
+				"name": "1521915830245_12",
+				"label": "Joke Answer",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a6add3e7580"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Joke Answer",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 411,
+							"y_position": 935,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "\"Want to go on a data?\"\n\nOK, I'll show myself out now... Have a great day, and see you soon!"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915830245_12",
+						"social_content": {
+							"209011": {
+								"text": "\"Want to go on a data?\"\n\nOK, I'll show myself out now... Have a great day, and see you soon!"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "\"Want to go on a data?\"\n\nOK, I'll show myself out now... Have a great day, and see you soon!"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e9f3ac001",
+						"destination_block": null,
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e9f3ac001",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6add84e315",
+				"name": "1521915876400_85",
+				"label": "Demographics intro",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a6add84e315"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Demographics intro",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 199,
+							"y_position": 769,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Cool! I'm Finn, and I'm a bot.  I was born about 7 days ago, and right now I'm learning to talk in words, and sometimes, videos.  Pretty soon I hope to learn to speak in VR!  Learning different languages would be cool too.\n\nWant to tell me more about you?"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915876400_85",
+						"social_content": {
+							"209011": {
+								"text": "Cool! I'm Finn, and I'm a bot.  I was born about 7 days ago, and right now I'm learning to talk in words, and sometimes, videos.  Pretty soon I hope to learn to speak in VR!  Learning different languages would be cool too.\n\nWant to tell me more about you?"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Cool! I'm Finn, and I'm a bot.  I was born about 7 days ago, and right now I'm learning to talk in words, and sometimes, videos.  Pretty soon I hope to learn to speak in VR!  Learning different languages would be cool too.\n\nWant to tell me more about you?"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212ec2718a81",
+						"destination_block": "95bd9e4a-9300-4012-912e-8d69b6fe6893",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212ec2718a81",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ade224ef1",
+				"name": "1521915979568_49",
+				"label": "Gender",
+				"semantic_label": "",
+				"config": {
+					"choices": {
+						"👨Male": "29841127-3247-4617-8b8b-799334726825",
+						"👩Female": "29841127-3247-4611-8e92-c05cff65fc03",
+						"🙂Other": "29841127-3247-461e-835a-1a86397a6800",
+						"🤭Prefer not to say": "29841127-3247-4610-8330-37186f608341"
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a6ade224ef1"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MultipleChoiceQuestionBlock",
+						"custom_data": {
+							"title": "Gender",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"branching": 0,
+							"add_exit_for_no_response": 0,
+							"choices": [
+								"👨Male",
+								"👩Female",
+								"🙂Other",
+								"🤭Prefer not to say"
+							],
+							"num_choices": 1,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 37,
+							"y_position": 918,
+							"num_connections": 1,
+							"output_names": [
+								1
+							],
+							"field_labels": [
+								1
+							]
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "What is your gender? Reply 1 for 👨Male, 2 for 👩Female, 3 for 🙂Other, 4 for 🤭Prefer not to say."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521915979568_49",
+						"social_content": {
+							"209011": {
+								"text": "What is your gender?"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "What is your gender?  👨Male,  👩Female,  🙂Other, 🤭Prefer not to say."
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e11277881",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6adee1b071",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e11277881",
+						"semantic_label": "",
+						"test": "@(block.value != NULL)"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e11277882",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e11277882",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\SelectOneResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6adf131556",
+				"name": "1521916137362_78",
+				"label": "Bye",
+				"semantic_label": "",
+				"config": {
+					"prompt": "95bd9e4a-9300-4012-912e-8a6adf131556"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MessageBlock",
+						"custom_data": {
+							"title": "Bye",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 14,
+							"y_position": 1247,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "Thanks! I'm so glad we got to know each other better.  That's all I've got for today. See you again soon!"
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521916137362_78",
+						"social_content": {
+							"209011": {
+								"text": "Thanks! I'm so glad we got to know each other better.  That's all I've got for today. See you again soon!"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "Thanks! I'm so glad we got to know each other better.  That's all I've got for today. See you again soon!"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e898aab01",
+						"destination_block": null,
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e898aab01",
+						"semantic_label": ""
+					}
+				],
+				"type": "MobilePrimitives\\Message"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8d69b6fe6893",
+				"name": "1554851812087_23",
+				"label": "In the ICT4D ecosystem, what is your primary role?",
+				"semantic_label": "",
+				"config": {
+					"choices": {
+						"Software vendor": "29841127-3247-4613-82ce-ca0d9f974b0f",
+						"Development Implementer": "29841127-3247-4615-8ac2-acc5c6bd8695",
+						"Humanitarian Responder": "29841127-3247-461a-8567-67e8195e8800",
+						"Donor/Policy Maker": "29841127-3247-461c-8556-ba7efd5cd800",
+						"None of these": "29841127-3247-4615-875d-ffe642be4636"
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8d69b6fe6893"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "MultipleChoiceQuestionBlock",
+						"custom_data": {
+							"title": "In the ICT4D ecosystem, what is your primary role?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"209011": false
+							},
+							"branching": 0,
+							"add_exit_for_no_response": 0,
+							"choices": [
+								"Software vendor",
+								"Development Implementer",
+								"Humanitarian Responder",
+								"Donor/Policy Maker",
+								"None of these"
+							],
+							"num_choices": 1,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 217,
+							"y_position": 937,
+							"num_connections": 1,
+							"output_names": [
+								1
+							],
+							"field_labels": [
+								1
+							]
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "In the ICT4D ecosystem, what is your primary role? Reply 1 for Software vendor, 2 for Development Implementer, 3 for Humanitarian Responder, 4 for Donor/Policy Maker, 5 for None of these."
+						},
+						"ussd_content": [],
+						"social_content": {
+							"209011": {
+								"text": "In the ICT4D ecosystem, are you primarily a:\n- Software vendor,\n- Development Implementer, \n- Humanitarian Responder, \n- Donor/Policy Maker?"
+							}
+						},
+						"clipboard_content": {
+							"209011": "In the ICT4D ecosystem, what is your primary role?"
+						},
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [
+							209011
+						],
+						"social_autogen_langs": [],
+						"clipboard_autogen_langs": [],
+						"js_key": "block_1554851812087_23"
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e7f344981",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6ade224ef1",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e7f344981",
+						"semantic_label": "",
+						"test": "@(block.value != NULL)"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e7f344982",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e7f344982",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\SelectOneResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f32c106af",
+				"name": "1520727585604_31",
+				"label": "How many months until you foresee the need to launch a project making use of Flow Interoperability?",
+				"semantic_label": "",
+				"config": {
+					"validation-minimum": 0,
+					"validation-maximum": 99,
+					"ivr": {
+						"max-digits": 2
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a4f32c106af"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "NumericQuestionBlock",
+						"custom_data": {
+							"title": "How many months until you foresee the need to launch a project making use of Flow Interoperability?",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"max_numeric_digits": 2,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 325,
+							"y_position": 424,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "How many months until you foresee the need to launch a project making use of Flow Interoperability? Reply with up to 2 digits."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [
+							209011
+						],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1520727585604_31",
+						"social_content": {
+							"209011": {
+								"text": "How many months until you foresee the need to launch a project making use of Flow Interoperability? (Please enter a number)"
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "How many months until you foresee the need to launch a project making use of Flow Interoperability?"
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e60835781",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a4f3475830c",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e60835781",
+						"semantic_label": "",
+						"test": "@(block.value != NULL)"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e60835782",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e60835782",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\NumericResponse"
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6adee1b071",
+				"name": "1521916104991_85",
+				"label": "Age",
+				"semantic_label": "",
+				"config": {
+					"validation-minimum": 0,
+					"validation-maximum": 99,
+					"ivr": {
+						"max-digits": 2
+					},
+					"prompt": "95bd9e4a-9300-4012-912e-8a6adee1b071"
+				},
+				"platform_metadata": {
+					"io_viamo": {
+						"type": "NumericQuestionBlock",
+						"custom_data": {
+							"title": "Age",
+							"label": "",
+							"tags": [],
+							"reviewed": {
+								"5": false,
+								"201289": false,
+								"209011": false
+							},
+							"max_numeric_digits": 2,
+							"property_field_id": null
+						},
+						"ui_data": {
+							"x_position": 17,
+							"y_position": 1071,
+							"num_connections": 1
+						},
+						"audio_files": [],
+						"sms_content": {
+							"209011": "OK, and last question... How old are you? You can enter your age in years."
+						},
+						"ussd_content": [],
+						"sms_autogen_langs": [],
+						"ussd_autogen_langs": [],
+						"js_key": "block_1521916104991_85",
+						"social_content": {
+							"209011": {
+								"text": "OK, and last question... How old are you? You can enter your age in years."
+							}
+						},
+						"social_autogen_langs": [],
+						"clipboard_content": {
+							"209011": "OK, and last question... How old are you? You can enter your age in years."
+						},
+						"clipboard_autogen_langs": []
+					}
+				},
+				"exits": [
+					{
+						"uuid": "29841127-3247-4610-8001-212e70d83881",
+						"destination_block": "95bd9e4a-9300-4012-912e-8a6adf131556",
+						"tag": "1",
+						"label": "29841127-3247-4610-8001-212e70d83881",
+						"semantic_label": "",
+						"test": "@(block.value != NULL)"
+					},
+					{
+						"uuid": "29841127-3247-4610-8001-212e70d83882",
+						"tag": "Default",
+						"label": "29841127-3247-4610-8001-212e70d83882",
+						"semantic_label": "",
+						"test": "@(TRUE)"
+					}
+				],
+				"type": "MobilePrimitives\\NumericResponse"
+			}
+		],
+		"resources": [
+			{
+				"uuid": "29841127-3247-4610-8001-212ed4fafd01",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f31a9f5fa",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Hey there @subscriber.[26417_first_name]! I'm Finn 🦊, a bot to help test out Flow Interoperability. I also love learning more about what ICT4D leaders need from Flow Interop."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Hey there @subscriber.[26417_first_name]! I'm Finn 🦊, a bot to help test out Flow Interoperability. I also love learning more about what ICT4D leaders need from Flow Interop."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Hey there @subscriber.[26417_first_name]! I'm Finn 🦊, a bot to help test out Flow Interoperability. I also love learning more about what ICT4D leaders need from Flow Interop."
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e079c4405",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4616-82cc-fb38a14f1ca4",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "🙄Not really"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4611-8357-df24da2fc3ed",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "🙂Little bit"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8c2a-d24fd8ac410f",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "😃Lots"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4615-87ed-a236d49968ac",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "😍OMG YES"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e079c4401",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "🙄Not really"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e079c4402",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "🙂Little bit"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e079c4403",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "😃Lots"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e079c4404",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "😍OMG YES"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f320f3888",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "How interested and excited are you for increased interoperability in ICT4D? Reply:\n- 1 for 🙄Not really, \n- 2 for 🙂Little bit, \n- 3 for 😃Lots, \n- 4 for 😍OMG YES."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "How interested and excited are you for increased interoperability in ICT4D?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "How interested and excited are you for increased interoperability in ICT4D?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e777a4481",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f32eef489",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Yeah, me too! Gosh, I can't wait!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Yeah, me too! Gosh, I can't wait!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Yeah, me too! Gosh, I can't wait!"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e93530d01",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f3326a61a",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Not really, huh? No worries. Hope we can find usefulness for you!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Not really, huh? No worries. Hope we can find usefulness for you!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Not really, huh? No worries. Hope we can find usefulness for you!"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212ebc89b801",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f33791370",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Cautiously optimistic, eh? I like you."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Cautiously optimistic, eh? I like you."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Cautiously optimistic, eh? I like you."
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e3ac18601",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e3ac18602",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f3475830c",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "What is the most important capability or consideration that you would need to get out of Flow Interop?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "What is the most important capability or consideration that you would need to get out of Flow Interop?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "What is the most important capability or consideration that you would need to get out of Flow Interop?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e6128fe01",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f34c251fc",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "OK, superstar! Thanks for the input! Have a great day, and we'll see you soon!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "OK, superstar! Thanks for the input! Have a great day, and we'll see you soon!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "OK, superstar! Thanks for the input! Have a great day, and we'll see you soon!"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212eadf97a82",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-87c4-342538d688ca",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Content and telecoms"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4615-8063-65bcb0f9b2d8",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Crisis response times"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-461a-821a-0d905659d800",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Data understanding"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212eadf97a81",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f795bf2f5",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Where do you think Flow Interoperability support will be most useful? Reply:\n- 1 for Reusing content and telecom/API connections across countries and channels\n- 2 for Reducing crisis response times in emergencies, through pre-existing data and gateway integrations\n- 3 for Deepening data understanding, by streamline data into data lakes and analysis systems"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Where do you think Flow Interoperability support will be most useful?\n- Reusing content and telecom/API connections across countries and channels\n- Reducing crisis response times in emergencies, through pre-existing data and gateway integrations\n- Deepening data understanding, by streamline data into data lakes and analysis systems"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "- Reusing content and telecom/API connections across countries and channels\n- Reducing crisis response times in emergencies, through pre-existing data and gateway integrations\n- Deepening data understanding, by streamline data into data lakes and analysis systems"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212ea2300e01",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ad944601c",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Got it, thanks!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Got it, thanks!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Got it, thanks!"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e04aa8881",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ada095511",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Welcome back @subscriber.[26417_first_name]! It's good to hear from you again."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Welcome back @subscriber.[26417_first_name]! It's good to hear from you again."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Welcome back @subscriber.[26417_first_name]! It's good to hear from you again."
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e2c316804",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-461d-8c2f-4c133f8ff000",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Know each other better"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-461d-8108-d12b5c380800",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Survey again"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4618-836d-43952f26f000",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Tell me a joke"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e2c316801",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Know each other better"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e2c316802",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Survey again"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e2c316803",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Tell me a joke"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ada5862d0",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "How can I help you out today? Reply:\n- 1 for We could get to know each other better?\n- 2 for Do you want to do the survey again?\n- 3 for Do you want to hear a joke?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "How can I help you out today?\n- We could get to know each other better?\n- Do you want to do the survey again?\n- Do you want to hear a joke?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "- We could get to know each other better?\n- Do you want to do the survey again?\n- Do you want to hear a joke?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212ec28f1801",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6adb851e30",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Oh dear... OK, here's one.  What's a bot's favorite pickup line?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Oh dear... OK, here's one.  What's a bot's favorite pickup line?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Oh dear... OK, here's one.  What's a bot's favorite pickup line?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e9f3ac001",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6add3e7580",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "\"Want to go on a data?\"\n\nOK, I'll show myself out now... Have a great day, and see you soon!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "\"Want to go on a data?\"\n\nOK, I'll show myself out now... Have a great day, and see you soon!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "\"Want to go on a data?\"\n\nOK, I'll show myself out now... Have a great day, and see you soon!"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212ec2718a81",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6add84e315",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Cool! I'm Finn, and I'm a bot.  I was born about 7 days ago, and right now I'm learning to talk in words, and sometimes, videos.  Pretty soon I hope to learn to speak in VR!  Learning different languages would be cool too.\n\nWant to tell me more about you?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Cool! I'm Finn, and I'm a bot.  I was born about 7 days ago, and right now I'm learning to talk in words, and sometimes, videos.  Pretty soon I hope to learn to speak in VR!  Learning different languages would be cool too.\n\nWant to tell me more about you?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Cool! I'm Finn, and I'm a bot.  I was born about 7 days ago, and right now I'm learning to talk in words, and sometimes, videos.  Pretty soon I hope to learn to speak in VR!  Learning different languages would be cool too.\n\nWant to tell me more about you?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e11277882",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4617-8b8b-799334726825",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "👨Male"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4611-8e92-c05cff65fc03",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "👩Female"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-461e-835a-1a86397a6800",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "🙂Other"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8330-37186f608341",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "🤭Prefer not to say"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e11277881",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6ade224ef1",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "What is your gender? Reply 1 for 👨Male, 2 for 👩Female, 3 for 🙂Other, 4 for 🤭Prefer not to say."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "What is your gender?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "What is your gender?  👨Male,  👩Female,  🙂Other, 🤭Prefer not to say."
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e898aab01",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6adf131556",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Thanks! I'm so glad we got to know each other better.  That's all I've got for today. See you again soon!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Thanks! I'm so glad we got to know each other better.  That's all I've got for today. See you again soon!"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "Thanks! I'm so glad we got to know each other better.  That's all I've got for today. See you again soon!"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e7f344982",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4613-82ce-ca0d9f974b0f",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Software vendor"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4615-8ac2-acc5c6bd8695",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Development Implementer"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-461a-8567-67e8195e8800",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Humanitarian Responder"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-461c-8556-ba7efd5cd800",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Donor/Policy Maker"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4615-875d-ffe642be4636",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "None of these"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e7f344981",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8d69b6fe6893",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "In the ICT4D ecosystem, what is your primary role? Reply 1 for Software vendor, 2 for Development Implementer, 3 for Humanitarian Responder, 4 for Donor/Policy Maker, 5 for None of these."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "In the ICT4D ecosystem, are you primarily a:\n- Software vendor,\n- Development Implementer, \n- Humanitarian Responder, \n- Donor/Policy Maker?"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "In the ICT4D ecosystem, what is your primary role?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e60835781",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e60835782",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a4f32c106af",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "How many months until you foresee the need to launch a project making use of Flow Interoperability? Reply with up to 2 digits."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "How many months until you foresee the need to launch a project making use of Flow Interoperability? (Please enter a number)"
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "How many months until you foresee the need to launch a project making use of Flow Interoperability?"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e70d83881",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "1"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e70d83882",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-8a6adee1b071",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "OK, and last question... How old are you? You can enter your age in years."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "OK, and last question... How old are you? You can enter your age in years."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"offline"
+						],
+						"value": "OK, and last question... How old are you? You can enter your age in years."
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e6898f483",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Default"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4612-82af-238e4f4493fe",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Yes"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4617-8b25-887ba584bba5",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "No"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e6898f481",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "Yes"
+					}
+				]
+			},
+			{
+				"uuid": "29841127-3247-4610-8001-212e6898f482",
+				"values": [
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"ivr",
+							"sms",
+							"ussd",
+							"rich_messaging",
+							"offline"
+						],
+						"value": "No"
+					}
+				]
+			},
+			{
+				"uuid": "95bd9e4a-9300-4012-912e-92332ad131e9",
+				"values": [
+					{
+						"language_id": 209011,
+						"content_type": "text",
+						"modes": [
+							"sms"
+						],
+						"value": "Hi! Is this your first visit? Reply 1 for Yes, 2 for No."
+					},
+					{
+						"language_id": "209011",
+						"content_type": "text",
+						"modes": [
+							"rich_messaging"
+						],
+						"value": "Hi! Is this your first visit?"
+					}
+				]
+			}
+		]
+	}
