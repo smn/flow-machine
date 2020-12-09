@@ -12,7 +12,6 @@ defmodule FlowMachine.RunnerTest do
 
     test "a flow", %{context: context} do
       assert {:ok, cursor} = Runner.run(context)
-      assert false
     end
   end
 end

@@ -37,9 +37,7 @@ defmodule FlowMachine.SpecLoader do
         FlowMachine.SpecLoader.load(unquote(mod), map, unquote(manually_loaded_fields))
       end
 
-      @spec load_key(unquote(mod).t, spec_key, spec_value) ::
-              {:ok, [{atom, spec_value}]}
-              | {:error, atom}
+      @spec load_key(unquote(mod).t, spec_key, spec_value) :: unquote(mod).t | {:error, atom}
       def load_key(impl, key, value),
         do: {:error, :not_implemented}
 
