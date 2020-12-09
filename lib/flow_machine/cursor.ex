@@ -2,7 +2,7 @@ defmodule FlowMachine.Cursor do
   @moduledoc """
   Where we are in a current block
   """
-  use FlowMachine.SpecLoader
+  use FlowMachine.SpecLoader, manual: ["promptConfig"]
   defstruct interaction_id: nil, prompt_config: nil
 
   @type t :: %__MODULE__{
@@ -10,6 +10,6 @@ defmodule FlowMachine.Cursor do
           prompt_config: FlowMachine.PromptConfig.t()
         }
 
-  def load_key(_cursor, "promptConfig", value),
-    do: {:ok, prompt_config: FlowMachine.PromptConfig.load(value)}
+  def load_key(cursor, "promptConfig", value),
+    do: %{cursor | prompt_config: FlowMachine.PromptConfig.load(value)}
 end

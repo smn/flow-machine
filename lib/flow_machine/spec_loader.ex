@@ -1,5 +1,29 @@
 defmodule FlowMachine.SpecLoader do
-  defmacro __using__(_ignored) do
+  @moduledoc """
+  A macro to help loading of JSON floip specs into structs.
+  It will automatically convert `camelCase` key names to
+  `snake_case` keys if they're in the struct definition.
+
+  Some keys need some extra help when loading, for when that is the
+  case list those key names under the `manual` key. Setting
+  `manual` to `true` means _all_ fields will be loaded manually.
+
+  # Example
+
+    defmodule FlowMachine.SomeSpecType do
+      use FlowMachine.SpecLoader
+    end
+
+    defmodule FlowMachiine.SomeSpecType do
+      use FlowMachine.SpecLoader, manual: ["someField"]
+
+      def load_key(some_spec, "someField", value) do
+        %{some_spec | some_field: parse(value)}
+      end
+    end
+  """
+  defmacro __using__(opts) do
+    manually_loaded_fields = Keyword.get(opts, :manual, [])
     %{module: mod} = __CALLER__
 
     quote do
@@ -7,8 +31,10 @@ defmodule FlowMachine.SpecLoader do
       @type spec_value :: map | list | binary | number
 
       @spec load(map) :: unquote(mod).t
-      def load(map) do
-        FlowMachine.SpecLoader.load(unquote(mod), map)
+      @spec load([map]) :: [unquote(mod).t]
+      def load(list) when is_list(list), do: Enum.map(list, &load/1)
+      def load(map) when is_map(map) do
+        FlowMachine.SpecLoader.load(unquote(mod), map, unquote(manually_loaded_fields))
       end
 
       @spec load_key(unquote(mod).t, spec_key, spec_value) ::
@@ -21,46 +47,33 @@ defmodule FlowMachine.SpecLoader do
     end
   end
 
-  def load(mod, map) do
-    struct_string_keys =
+  def load(mod, map, true) do
+    all_keys =
       mod.__struct__
       |> Map.keys()
       |> Enum.map(&to_string/1)
 
-    map
-    |> Enum.reduce(
-      struct(mod),
-      fn {key, value}, impl ->
-        response =
-          try do
-            # give the implementation a change to load it manually
-            mod.load_key(impl, key, value)
-          rescue
-            # if not implemented, attempt to load it as a struct key
-            FunctionClauseError ->
-              {:error, :not_implemented}
-          end
+    load(mod, map, all_keys)
+  end
 
-        {:ok, values} =
-          case response do
-            {:ok, values} ->
-              {:ok, values}
+  def load(mod, map, manually_loaded_fields) do
+    {manual_fields, auto_fields} =
+      Enum.split_with(map, fn {key, _value} -> Enum.member?(manually_loaded_fields, key) end)
 
-            {:error, :not_implemented} ->
-              attempt_struct_key = Macro.underscore(key)
+    impl =
+      manual_fields
+      |> Enum.reduce(struct(mod), fn {key, value}, impl ->
+        mod.load_key(impl, key, value)
+      end)
 
-              if Enum.member?(struct_string_keys, attempt_struct_key) do
-                {:ok, Keyword.new([{String.to_existing_atom(attempt_struct_key), value}])}
-              else
-                {:error, :invalid_struct_key}
-              end
-          end
+    auto_fields
+    |> Enum.reduce(impl, fn {key, value}, impl ->
+      struct_key =
+        key
+        |> Macro.underscore()
+        |> String.to_existing_atom()
 
-        values
-        |> Enum.reduce(impl, fn {key, value}, impl ->
-          Map.put(impl, key, value)
-        end)
-      end
-    )
+      Map.put(impl, struct_key, value)
+    end)
   end
 end

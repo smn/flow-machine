@@ -1,6 +1,6 @@
 defmodule FlowMachine.PromptConfig do
   @moduledoc false
-  use FlowMachine.SpecLoader
+  use FlowMachine.SpecLoader, manual: ["choices"]
 
   defstruct kind: nil,
             is_response_required: nil,
@@ -23,12 +23,11 @@ defmodule FlowMachine.PromptConfig do
           ]
         }
 
-  def load_key(_prompt_config, "choices", value),
+  def load_key(prompt_config, "choices", value),
     do:
-      {:ok,
+      %{prompt_config |
        choices:
          Enum.map(value, fn %{"key" => key, "value" => value} ->
            %{key: key, value: value}
          end)}
-
 end

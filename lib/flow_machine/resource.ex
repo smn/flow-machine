@@ -1,5 +1,5 @@
 defmodule FlowMachine.Resource do
-  use FlowMachine.SpecLoader
+  use FlowMachine.SpecLoader, manual: ["values"]
 
   @moduledoc """
   A Resource describes a collection of localized strings or media resources,
@@ -29,6 +29,6 @@ defmodule FlowMachine.Resource do
           # audio: audio_resource
         }
 
-  def load_key(_resource, "values", values),
-    do: {:ok, [values: Enum.map(values, &FlowMachine.ResourceDefinition.load/1)]}
+  def load_key(resource, "values", values),
+    do: %{resource | values: Enum.map(values, &FlowMachine.ResourceDefinition.load/1)}
 end

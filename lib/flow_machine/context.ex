@@ -5,7 +5,18 @@ defmodule FlowMachine.Context do
   any interactive interaction and resume exactly where one left off.
   The context object is all one needs, and it's 100% JSON-serializable.
   """
-  use FlowMachine.SpecLoader
+  use FlowMachine.SpecLoader,
+    manual: [
+      "createdAt",
+      "contact",
+      "cursor",
+      "entryAt",
+      "flows",
+      "interactions",
+      "resources",
+      "reversibleOperations",
+      "logs"
+    ]
 
   defstruct uuid: nil,
             id: nil,
@@ -59,31 +70,30 @@ defmodule FlowMachine.Context do
           specification_version: binary | nil
         }
 
-  def load_key(_context, "createdAt", value),
-    do: {:ok, created_at: FlowMachine.Helpers.from_iso8601!(value)}
+  def load_key(context, "createdAt", value),
+    do: %{context | created_at: FlowMachine.Helpers.from_iso8601!(value)}
 
-  def load_key(_context, "contact", value), do: {:ok, contact: FlowMachine.Contact.load(value)}
-  def load_key(_context, "cursor", value), do: {:ok, cursor: FlowMachine.Cursor.load(value)}
+  def load_key(context, "contact", value), do: %{context | contact: FlowMachine.Contact.load(value)}
+  def load_key(context, "cursor", value), do: %{context | cursor: FlowMachine.Cursor.load(value)}
 
-  def load_key(_context, "entryAt", value),
-    do: {:ok, entry_at: FlowMachine.Helpers.from_iso8601!(value)}
+  def load_key(context, "entryAt", value),
+    do: %{context | entry_at: FlowMachine.Helpers.from_iso8601!(value)}
 
+  def load_key(context, "flows", value),
+    do: %{context | flows: Enum.map(value, &FlowMachine.Flow.load/1)}
 
-  def load_key(_context, "flows", value),
-    do: {:ok, flows: Enum.map(value, &FlowMachine.Flow.load/1)}
+  def load_key(context, "interactions", value),
+    do: %{context | interactions: Enum.map(value, &FlowMachine.BlockInteraction.load/1)}
 
-  def load_key(_context, "interactions", value),
-    do: {:ok, interactions: Enum.map(value, &FlowMachine.BlockInteraction.load/1)}
+  def load_key(context, "resources", value),
+    do: %{context | resources: Enum.map(value, &FlowMachine.Resource.load/1)}
 
-  def load_key(_context, "resources", value),
-    do: {:ok, resources: Enum.map(value, &FlowMachine.Resource.load/1)}
+  def load_key(context, "reversibleOperations", value),
+    do: %{context | reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
 
-  def load_key(_context, "reversibleOperations", value),
-    do: {:ok, reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
-
-  def load_key(_context, "logs", value),
+  def load_key(context, "logs", value),
     do:
-      {:ok,
+      %{context |
        logs:
          value
          |> Enum.map(fn {key, value} ->
