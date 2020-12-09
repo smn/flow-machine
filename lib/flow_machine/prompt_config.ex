@@ -23,15 +23,6 @@ defmodule FlowMachine.PromptConfig do
           ]
         }
 
-  def load_key(_prompt_config, "kind", value), do: {:ok, kind: value}
-
-  def load_key(_prompt_config, "isResponseRequired", value),
-    do: {:ok, is_response_required: value}
-
-  def load_key(_prompt_config, "prompt", value), do: {:ok, prompt: value}
-
-  def load_key(_prompt_config, "value", value), do: {:ok, value: value}
-
   def load_key(_prompt_config, "choices", value),
     do:
       {:ok,
@@ -40,5 +31,4 @@ defmodule FlowMachine.PromptConfig do
            %{key: key, value: value}
          end)}
 
-  def load_key(_prompt_config, "isSubmitted", value), do: {:ok, is_submitted: value}
 end

@@ -23,13 +23,4 @@ defmodule FlowMachine.BlockExit do
           config: map,
           default: bool | nil
         }
-
-  def load_key(_block_exit, "uuid", value), do: {:ok, uuid: value}
-  def load_key(_block_exit, "label", value), do: {:ok, label: value}
-  def load_key(_block_exit, "tag", value), do: {:ok, tag: value}
-  def load_key(_block_exit, "destinationBlock", value), do: {:ok, destination_block: value}
-  def load_key(_block_exit, "semanticLabel", value), do: {:ok, semantic_label: value}
-  def load_key(_block_exit, "test", value), do: {:ok, test: value}
-  def load_key(_block_exit, "config", value), do: {:ok, config: value}
-  def load_key(_block_exit, "default", value), do: {:ok, default: value}
 end

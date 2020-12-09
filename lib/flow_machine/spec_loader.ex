@@ -31,13 +31,22 @@ defmodule FlowMachine.SpecLoader do
     |> Enum.reduce(
       struct(mod),
       fn {key, value}, impl ->
-        {:ok, values} =
+        response =
           try do
             # give the implementation a change to load it manually
             mod.load_key(impl, key, value)
           rescue
             # if not implemented, attempt to load it as a struct key
             FunctionClauseError ->
+              {:error, :not_implemented}
+          end
+
+        {:ok, values} =
+          case response do
+            {:ok, values} ->
+              {:ok, values}
+
+            {:error, :not_implemented} ->
               attempt_struct_key = Macro.underscore(key)
 
               if Enum.member?(struct_string_keys, attempt_struct_key) do

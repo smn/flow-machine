@@ -18,11 +18,6 @@ defmodule FlowMachine.ContactProperty do
           deleted_at: DateTime.t() | nil
         }
 
-  def load_key(_contact_property, "value", value), do: {:ok, value: value}
-
-  def load_key(_contact_property, "contactPropertyFieldName", value),
-    do: {:ok, contact_property_field_name: value}
-
   def load_key(_contact_property, "createdAt", value),
     do: {:ok, created_at: FlowMachine.Helpers.from_iso8601!(value)}
 
