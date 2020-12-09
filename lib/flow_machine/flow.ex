@@ -46,8 +46,5 @@ defmodule FlowMachine.Flow do
   def load_key(flow, "blocks", value),
     do: %{flow | blocks: Enum.map(value, &FlowMachine.Block.load/1)}
 
-  # def load_key(flow, "resources", value),
-  #   do: %{flow | resources: Enum.map(value, &FlowMachine.Resource.load/1)}
-
   def load_key(flow, "sessions", value), do: %{flow | sessions: [value | flow.sessions]}
 end

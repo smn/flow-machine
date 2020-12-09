@@ -18,6 +18,8 @@ defmodule FlowMachine.Context do
       "logs"
     ]
 
+  alias FlowMachine.{DeliveryStatus, SupportedModes}
+
   defstruct uuid: nil,
             id: nil,
             created_at: nil,
@@ -64,16 +66,63 @@ defmodule FlowMachine.Context do
           cursor: FlowMachine.Cursor.t() | nil,
           flows: [FlowMachine.Flow.t()],
           first_flow_id: binary,
-          resources: FlowMachine.Resource.t(),
+          resources: [FlowMachine.ResourceDefinition.t()],
           platform_metadata: map,
           logs: map,
           specification_version: binary | nil
         }
 
+  @doc """
+  Create a new %Context{} for the given contact with the given flows.
+  This requires _exactly_ one flow in the `flows` list argument
+
+  # Example
+
+    iex> flow_uuid = UUID.uuid4()
+    iex> flow = %FlowMachine.Flow{uuid: flow_uuid}
+    iex> contact = %FlowMachine.Contact{}
+    iex> context = FlowMachine.Context.new(contact, "user_id", "org_id", [flow], "ENG")
+    iex> %FlowMachine.Context{first_flow_id: flow_uuid, flows: [flow], contact: contact, user_id: "user_id", org_id: "org_id", language_id: "ENG"} = context
+
+  """
+  @spec new(
+          FlowMachine.Contact.t(),
+          user_id :: binary,
+          org_id :: binary,
+          [FlowMachine.Flow.t()],
+          language_id :: binary,
+          mode :: binary | nil,
+          resources :: [FlowMachine.ResourceDefinition.t()]
+        ) :: t
+  def new(
+        contact,
+        user_id,
+        org_id,
+        [flow],
+        language_id,
+        mode \\ nil,
+        resources \\ []
+      ),
+      do: %__MODULE__{
+        id: UUID.uuid4(),
+        user_id: user_id,
+        org_id: org_id,
+        language_id: language_id,
+        created_at: DateTime.utc_now(),
+        delivery_status: DeliveryStatus.status_queued(),
+        mode: mode || SupportedModes.mode_offline(),
+        resources: resources,
+        contact: contact,
+        flows: [flow],
+        first_flow_id: flow.uuid
+      }
+
   def load_key(context, "createdAt", value),
     do: %{context | created_at: FlowMachine.Helpers.from_iso8601!(value)}
 
-  def load_key(context, "contact", value), do: %{context | contact: FlowMachine.Contact.load(value)}
+  def load_key(context, "contact", value),
+    do: %{context | contact: FlowMachine.Contact.load(value)}
+
   def load_key(context, "cursor", value), do: %{context | cursor: FlowMachine.Cursor.load(value)}
 
   def load_key(context, "entryAt", value),
@@ -89,15 +138,19 @@ defmodule FlowMachine.Context do
     do: %{context | resources: Enum.map(value, &FlowMachine.Resource.load/1)}
 
   def load_key(context, "reversibleOperations", value),
-    do: %{context | reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)}
+    do: %{
+      context
+      | reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)
+    }
 
   def load_key(context, "logs", value),
-    do:
-      %{context |
-       logs:
-         value
-         |> Enum.map(fn {key, value} ->
-           {FlowMachine.Helpers.from_iso8601!(key), value}
-         end)
-         |> Enum.into(%{})}
+    do: %{
+      context
+      | logs:
+          value
+          |> Enum.map(fn {key, value} ->
+            {FlowMachine.Helpers.from_iso8601!(key), value}
+          end)
+          |> Enum.into(%{})
+    }
 end

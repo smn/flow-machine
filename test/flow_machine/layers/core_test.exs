@@ -54,7 +54,7 @@ defmodule FlowMachine.Layers.CoreTest do
       }
     }
 
-    assert {:ok, ^block_exit, ctx} =
+    assert {:ok, ^block_exit, _ctx} =
              Output.output(block, %{interactions: [], contact: %{age: 20}})
 
     assert %{
