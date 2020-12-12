@@ -5,8 +5,16 @@ defmodule FlowMachine.Runner do
   @type cursor :: FlowMachine.Cursor.t()
   @type flow :: FlowMachine.Flow.t()
 
+  alias FlowMachine.Context
+
   @spec run(context) ::
           {:ok, context} | {:error, atom}
+  def run(%{cursor: nil} = context),
+    do:
+      context
+      |> Context.initialize()
+      |> run()
+
   def run(%{flows: [flow]} = context) do
     # NOTE:
     # the spec allows for multiple flows to be defined for a context, we're not supporting

@@ -117,6 +117,95 @@ defmodule FlowMachine.Context do
         first_flow_id: flow.uuid
       }
 
+  @spec initialize(t) :: t
+  def initialize(context) do
+    %{
+      context
+      | delivery_status: DeliveryStatus.status_in_progress(),
+        entry_at: DateTime.utc_now(),
+        cursor: %FlowMachine.Cursor{}
+    }
+  end
+
+  # @doc """
+  # """
+  # @spec find_next_block_on_active_flow(context) ::
+  #         {:ok, FlowMachine.BlockInteraction.t()}
+  #         | {:error, :block_interaction_not_found}
+  # def find_next_block_on_active_flow(%{cursor: cursor} = context) do
+  #   {:ok, flow} = get_active_flow_from(context)
+
+  #   if is_nil(cursor) do
+  #     hd(flow.blocks)
+  #   else
+  #     interaction = find_interaction_with(context, cursor.interaction_id)
+  #     find_next_block_from(context, interaction)
+  #   end
+  # end
+
+  # @spec find_next_block_from(context, FlowMachine.BlockInteraction.t()) :: FlowMachine.Block.t()
+  # def find_next_block_from(
+  #       context,
+  #       %{block_id: block_id, selected_exit_id: selected_exit_id} = _block_interaction
+  #     )
+  #     when not is_nil(selected_exit_id) do
+  #   block = find_block_on_active_flow_with(context, block_id)
+
+  #   %{destination_block: destination_block} =
+  #     FlowMachine.Block.find_block_exit_with(block, selected_exit_id)
+
+  #   %{blocks: blocks} = get_active_flow_from(context)
+
+  #   Enum.find(blocks, fn
+  #     %{uuid: ^destination_block} -> true
+  #     _anything_else -> false
+  #   end)
+  # end
+
+  # @doc """
+  # Get the flow id for the active flow from the context
+  # """
+  # @spec get_active_flow_id_from(context) :: binary
+  # def get_active_flow_id_from(%{
+  #       nested_flow_block_interaction_id_stack: [],
+  #       first_flow_id: first_flow_id
+  #     }),
+  #     do: first_flow_id
+
+  # def get_active_flow_id_from(%{nested_flow_block_interaction_id_stack: stack} = context) do
+  #   block_interaction = block_find_interaction_with(context, tl(stack))
+  #   find_nested_flow_id_for(context, block_interaction)
+  # end
+
+  # @spec find_nested_flow_id_for(context, FlowMachine.BlockInteraction.t()) :: binary
+  # def find_nested_flow_id_for(context, block_interaction) do
+  #   flow = find_flow_with(context, block_interaction.flow_id)
+  #   run_flow_block = FlowMachine.Flow.find_block_with(flow, block_interaction.block_id)
+  #   run_flow_block.flow_id
+  # end
+
+  # @spec get_active_flow_from(t) :: {:ok, FlowMachine.Flow.t()}
+  # def get_active_flow_from(%{cursor: nil, flows: flows}), do: {:ok, hd(flows)}
+
+  # @spec find_block_on_active_flow_with(context, binary) :: FlowMachine.BlockInteraction.t()
+  # def find_block_on_active_flow_with(context, uuid) do
+  #   FlowMachine.Flow.find_block_with(get_active_flow_from(context), uuid)
+  # end
+
+  # @doc """
+  # Find the last interaction with the given UUID
+  # """
+  # @spec find_interaction_with(uuid :: binary, context) ::
+  #         FlowMachine.BlockInteraction.t() | nil
+  # def find_interaction_with(%{interactions: interactions} = _context, uuid) do
+  #   interactions
+  #   |> Enum.reverse()
+  #   |> Enum.find(fn
+  #     %{uuid: ^uuid} -> true
+  #     _anything_else -> false
+  #   end)
+  # end
+
   def load_key(context, "createdAt", value),
     do: %{context | created_at: FlowMachine.Helpers.from_iso8601!(value)}
 

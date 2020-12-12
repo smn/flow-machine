@@ -1,0 +1,146 @@
+{
+  "flows": [
+    {
+      "uuid": "738e9a29-8126-46fe-a026-d3e22558d4b8",
+      "name": "flow-name",
+      "label": "flow-label",
+      "last_modified": "2020-12-12 06:47:26.373Z",
+      "interaction_timeout": 172800,
+      "supported_modes": ["rich_messaging"],
+      "languages": [
+        {
+          "id": "22",
+          "name": "English",
+          "abbreviation": "EN",
+          "org_id": "1008107874829627392",
+          "right_to_left": false,
+          "code": null,
+          "deleted_at": null
+        },
+        {
+          "id": "23",
+          "name": "Spanish",
+          "abbreviation": "ES",
+          "org_id": "1008107874829627392",
+          "right_to_left": false,
+          "code": null,
+          "deleted_at": null
+        }
+      ],
+      "platform_metadata": {},
+      "blocks": [
+        {
+          "uuid": "589737dc-aa49-42f1-82e3-3ee409469fe2",
+          "platform_metadata": {
+            "io_viamo": {
+              "ui_data": {
+                "x_position": 458,
+                "y_position": 314
+              }
+            }
+          },
+          "type": "ConsoleIO\\Print",
+          "name": "blockname",
+          "label": "block-label",
+          "semantic_label": "block-semantic-label",
+          "exits": [
+            {
+              "uuid": "d75bdf6c-554a-4df1-9596-aaa728fc891d",
+              "tag": "Default",
+              "label": "Default",
+              "default": true,
+              "config": {}
+            }
+          ],
+          "config": {
+            "message": "0fe13350-8623-406a-89f1-ebf9f5ffd770"
+          }
+        }
+      ],
+      "first_block_id": "589737dc-aa49-42f1-82e3-3ee409469fe2"
+    }
+  ],
+  "resources": [
+    {
+      "uuid": "0fe13350-8623-406a-89f1-ebf9f5ffd770",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "english-content"
+        },
+        {
+          "language_id": "23",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "spanish-content"
+        }
+      ]
+    },
+    {
+      "uuid": "b4440949-b7be-4e80-a8aa-436be363c2c0",
+      "values": []
+    }
+  ]
+}
