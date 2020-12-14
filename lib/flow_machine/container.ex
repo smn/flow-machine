@@ -3,6 +3,8 @@ defmodule FlowMachine.Container do
   A Container is a "package" document containing one or more Flow Definitions,
   useful for sharing multiple Flows in a single document.
   """
+  use FlowMachine.SpecLoader, manual: ["flows", "resources"]
+
   defstruct specification_version: nil,
             uuid: nil,
             name: nil,
@@ -20,4 +22,10 @@ defmodule FlowMachine.Container do
           flows: [FlowMachine.Flow.t()],
           resources: [FlowMachine.Resource.t()]
         }
+
+  def load_key(container, "flows", value),
+    do: %{container | flows: Enum.map(value, &FlowMachine.Flow.load/1)}
+
+  def load_key(container, "resources", value),
+    do: %{container | resources: Enum.map(value, &FlowMachine.Resource.load/1)}
 end

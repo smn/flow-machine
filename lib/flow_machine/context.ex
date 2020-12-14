@@ -82,7 +82,7 @@ defmodule FlowMachine.Context do
     iex> flow = %FlowMachine.Flow{uuid: flow_uuid}
     iex> contact = %FlowMachine.Contact{}
     iex> context = FlowMachine.Context.new(contact, "user_id", "org_id", [flow], "ENG")
-    iex> %FlowMachine.Context{first_flow_id: flow_uuid, flows: [flow], contact: contact, user_id: "user_id", org_id: "org_id", language_id: "ENG"} = context
+    iex> %FlowMachine.Context{first_flow_id: flow_uuid, flows: [flow], contact: contact, user_id: "user_id", org_id: "org_id", language_id: "ENG"} == context
 
   """
   @spec new(
