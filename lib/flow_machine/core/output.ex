@@ -8,7 +8,7 @@ defmodule FlowMachine.Core.Output do
         %{interactions: interactions} = context
       ) do
     Logger.info("Were being very liberal with the %Context here")
-    {:ok, value} = Excellent.evaluate(expression, context)
+    {:ok, value} = Expression.evaluate(expression, context)
 
     new_interaction = %FlowMachine.BlockInteraction{
       value: value

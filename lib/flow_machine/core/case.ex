@@ -13,7 +13,7 @@ defmodule FlowMachine.Core.Case do
 
     test_exit =
       Enum.find(test_exits, fn %{test: expression} ->
-        case Excellent.evaluate_block(expression, context) do
+        case Expression.evaluate_block(expression, context) do
           {:ok, 0} -> false
           {:ok, false} -> false
           {:ok, nil} -> false
