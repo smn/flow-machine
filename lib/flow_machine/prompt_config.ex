@@ -24,10 +24,11 @@ defmodule FlowMachine.PromptConfig do
         }
 
   def load_key(prompt_config, "choices", value),
-    do:
-      %{prompt_config |
-       choices:
-         Enum.map(value, fn %{"key" => key, "value" => value} ->
-           %{key: key, value: value}
-         end)}
+    do: %{
+      prompt_config
+      | choices:
+          Enum.map(value, fn %{"key" => key, "value" => value} ->
+            %{key: key, value: value}
+          end)
+    }
 end

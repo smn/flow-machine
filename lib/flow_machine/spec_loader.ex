@@ -33,6 +33,7 @@ defmodule FlowMachine.SpecLoader do
       @spec load(map) :: unquote(mod).t
       @spec load([map]) :: [unquote(mod).t]
       def load(list) when is_list(list), do: Enum.map(list, &load/1)
+
       def load(map) when is_map(map) do
         FlowMachine.SpecLoader.load(unquote(mod), map, unquote(manually_loaded_fields))
       end
