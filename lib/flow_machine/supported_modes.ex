@@ -1,4 +1,6 @@
 defmodule FlowMachine.SupportedModes do
+  @moduledoc false
+
   @mode_sms "sms"
   def mode_sms, do: @mode_sms
   @mode_ussd "ussd"

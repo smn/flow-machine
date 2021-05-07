@@ -1,4 +1,6 @@
 defmodule FlowMachine.DeliveryStatus do
+  @moduledoc false
+
   @status_queued "QUEUED"
   def status_queued, do: @status_queued
   @status_ringing "RINGING"

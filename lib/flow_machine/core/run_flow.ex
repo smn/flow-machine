@@ -1,4 +1,5 @@
 defmodule FlowMachine.Core.RunFlow do
+  @moduledoc false
   use FlowMachine, :core
   require Logger
 

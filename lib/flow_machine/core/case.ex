@@ -1,4 +1,5 @@
 defmodule FlowMachine.Core.Case do
+  @moduledoc false
   use FlowMachine, :core
 
   @spec case_(block, context) :: {:ok, block_exit, context}

@@ -1,4 +1,5 @@
 defmodule FlowMachine.Core.Log do
+  @moduledoc false
   use FlowMachine, :core
 
   @spec log(block, context) :: {:ok, block_exit, context}

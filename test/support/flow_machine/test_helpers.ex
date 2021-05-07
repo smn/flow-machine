@@ -1,4 +1,5 @@
 defmodule FlowMachine.TestHelpers do
+  @moduledoc false
   def load_fixture(path) do
     path
     |> File.read!()
