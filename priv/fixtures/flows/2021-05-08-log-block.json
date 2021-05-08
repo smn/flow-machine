@@ -1,0 +1,71 @@
+{
+  "flows": [
+    {
+      "uuid": "11350eac-0348-459b-a468-686ce3d14e87",
+      "name": "flowname",
+      "label": "flow label",
+      "last_modified": "2021-05-08 06:43:09.671Z",
+      "interaction_timeout": 172800,
+      "supported_modes": ["rich_messaging"],
+      "languages": [
+        {
+          "id": "22",
+          "name": "English",
+          "abbreviation": "EN",
+          "org_id": "1008107874829627392",
+          "right_to_left": false,
+          "code": null,
+          "deleted_at": null
+        }
+      ],
+      "platform_metadata": {},
+      "blocks": [
+        {
+          "uuid": "b151a201-036a-4bca-bda0-b86f0c632aba",
+          "platform_metadata": {
+            "io_viamo": {
+              "ui_data": {
+                "x_position": 486,
+                "y_position": 139
+              }
+            }
+          },
+          "type": "Core\\Log",
+          "name": "blockname",
+          "label": "block label",
+          "semantic_label": "semantic label",
+          "exits": [
+            {
+              "uuid": "61fc6459-ddc2-4e3d-b1d4-d809d33b5995",
+              "tag": "Default",
+              "label": "Default",
+              "default": true,
+              "config": {}
+            }
+          ],
+          "config": {
+            "message": "2e951b43-b9d7-4d99-ad39-2b60cd5f5417"
+          }
+        }
+      ],
+      "first_block_id": "b151a201-036a-4bca-bda0-b86f0c632aba"
+    }
+  ],
+  "resources": [
+    {
+      "uuid": "2e951b43-b9d7-4d99-ad39-2b60cd5f5417",
+      "values": [
+        {
+          "language_id": "22",
+          "content_type": ["text"],
+          "modes": ["rich_messaging"],
+          "value": "the log message"
+        }
+      ]
+    },
+    {
+      "uuid": "95992c9e-29f5-4eca-a3f6-b57b2e11adaa",
+      "values": []
+    }
+  ]
+}

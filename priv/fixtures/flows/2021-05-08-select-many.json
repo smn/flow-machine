@@ -1,10 +1,10 @@
 {
   "flows": [
     {
-      "uuid": "2c0b1f97-506b-437f-afc4-2d627ef169db",
+      "uuid": "b510d3ed-0bca-4205-a250-e8247b52540c",
       "name": "flow name",
       "label": "flow label",
-      "last_modified": "2021-05-08 06:17:59.326Z",
+      "last_modified": "2021-05-08 06:48:00.755Z",
       "interaction_timeout": 172800,
       "supported_modes": ["rich_messaging"],
       "languages": [
@@ -21,41 +21,12 @@
       "platform_metadata": {},
       "blocks": [
         {
-          "uuid": "95e745a4-b377-4d28-a8c3-763c6480fbc6",
+          "uuid": "8f5eacf1-b101-4e49-bc4f-283353ecca98",
           "platform_metadata": {
             "io_viamo": {
               "ui_data": {
-                "x_position": 352,
-                "y_position": 142
-              }
-            }
-          },
-          "type": "MobilePrimitives\\Message",
-          "name": "blockname",
-          "label": "block label",
-          "semantic_label": "semantic label",
-          "exits": [
-            {
-              "uuid": "3045199c-1d36-4cc4-a90b-96424df83faf",
-              "tag": "Default",
-              "label": "Default",
-              "default": true,
-              "config": {},
-              "destination_block": "ed55f7a4-c1bd-4198-8a99-7c54b298e829"
-            }
-          ],
-          "config": {
-            "prompt": "8aacebc3-868e-4426-8275-ddd696500ff4",
-            "message_audio": ""
-          }
-        },
-        {
-          "uuid": "ed55f7a4-c1bd-4198-8a99-7c54b298e829",
-          "platform_metadata": {
-            "io_viamo": {
-              "ui_data": {
-                "x_position": 145,
-                "y_position": 310
+                "x_position": 275,
+                "y_position": 229
               }
             }
           },
@@ -65,91 +36,59 @@
           "semantic_label": "semantic label",
           "exits": [
             {
-              "uuid": "d2052f93-be6d-4009-b765-ea892cd536df",
-              "tag": "Default",
-              "label": "Default",
-              "default": true,
-              "config": {},
-              "destination_block": "acf145d0-4a30-4a7c-946b-b07eb302ad26"
-            },
-            {
-              "uuid": "f9ceafa2-054c-4c4d-95e7-54c38b8b940b",
-              "tag": "Error",
-              "label": "Error",
-              "config": {},
-              "destination_block": "acf145d0-4a30-4a7c-946b-b07eb302ad26"
-            },
-            {
-              "uuid": "e7cbecb3-10b8-429b-b746-bbf91ff7b55a",
-              "test": "block.value = 1",
-              "label": "8ad5f2de-9779-4df1-bd87-7e9fa75dfe0b",
-              "tag": "",
-              "config": {},
-              "destination_block": "acf145d0-4a30-4a7c-946b-b07eb302ad26"
-            },
-            {
-              "uuid": "4dd2d187-23d8-4fa8-b8b0-da423d784729",
-              "test": "block.value = 2",
-              "label": "ac15d420-db53-4d20-bca7-423b7f931a67",
-              "tag": "",
-              "config": {},
-              "destination_block": "acf145d0-4a30-4a7c-946b-b07eb302ad26"
-            },
-            {
-              "uuid": "b42dbaee-e4a7-4bd1-8736-8ea128d7c83e",
-              "test": "block.value = 3",
-              "label": "1d2c57d5-bb9c-40aa-8e0c-235fc856a36f",
-              "tag": "",
-              "config": {},
-              "destination_block": "acf145d0-4a30-4a7c-946b-b07eb302ad26"
-            }
-          ],
-          "config": {
-            "prompt": "b273fd79-6d04-442d-8540-3e288da088b5",
-            "question_prompt": "96a4a40a-5b78-4d0c-ae55-6ac18108e296",
-            "choices_prompt": "8bfaf7d2-ff7e-4421-9501-c62c533dc266",
-            "choices": {
-              "1": "d2b6cd59-896d-4fbf-9de0-48d0227347ff",
-              "2": "8ad5f2de-9779-4df1-bd87-7e9fa75dfe0b",
-              "3": "ac15d420-db53-4d20-bca7-423b7f931a67",
-              "4": "1d2c57d5-bb9c-40aa-8e0c-235fc856a36f"
-            }
-          }
-        },
-        {
-          "uuid": "acf145d0-4a30-4a7c-946b-b07eb302ad26",
-          "platform_metadata": {
-            "io_viamo": {
-              "ui_data": {
-                "x_position": 346,
-                "y_position": 720
-              }
-            }
-          },
-          "type": "Core\\Output",
-          "name": "blockname",
-          "label": "label",
-          "semantic_label": "semantic label",
-          "config": {
-            "value": "hello "
-          },
-          "exits": [
-            {
-              "uuid": "13ce9f36-f8a5-4be9-8932-f99f9d2f0987",
+              "uuid": "ce73f707-e7fd-4f1d-84c0-dade0bdde5bf",
               "tag": "Default",
               "label": "Default",
               "default": true,
               "config": {}
+            },
+            {
+              "uuid": "61e87cc1-4e16-45ba-999f-347a62d3fec3",
+              "tag": "Error",
+              "label": "Error",
+              "config": {}
+            },
+            {
+              "uuid": "4edd07c5-c8cb-405c-961e-fd3eaf0ea038",
+              "test": "block.value = 1",
+              "label": "566e9921-0ade-49c0-a405-c9f15383b7d7",
+              "tag": "",
+              "config": {}
+            },
+            {
+              "uuid": "dab0f3a0-1b06-49dc-bde8-f24781bd688a",
+              "test": "block.value = 2",
+              "label": "dc8011be-661b-4edf-8f41-f860ecabda97",
+              "tag": "",
+              "config": {}
+            },
+            {
+              "uuid": "ca5fae2d-f611-4a61-8c40-5a4f225393da",
+              "test": "block.value = 3",
+              "label": "3db10f1a-b937-4181-bede-e0ea241f1eb0",
+              "tag": "",
+              "config": {}
             }
-          ]
+          ],
+          "config": {
+            "prompt": "0352349c-f29d-4ed4-922a-ea10b2345a68",
+            "question_prompt": "faf50b10-4d1b-44e1-a1fc-cc4746baf3e3",
+            "choices_prompt": "9212189c-5c74-4f71-84fe-d73142d34569",
+            "choices": {
+              "1": "41c809d6-b0d5-496c-b9fd-9f63a41ba224",
+              "2": "566e9921-0ade-49c0-a405-c9f15383b7d7",
+              "3": "dc8011be-661b-4edf-8f41-f860ecabda97",
+              "4": "3db10f1a-b937-4181-bede-e0ea241f1eb0"
+            }
+          }
         }
       ],
-      "first_block_id": "95e745a4-b377-4d28-a8c3-763c6480fbc6"
+      "first_block_id": "8f5eacf1-b101-4e49-bc4f-283353ecca98"
     }
   ],
   "resources": [
     {
-      "uuid": "6473cda9-140b-44be-b784-82d44cd40f5e",
+      "uuid": "41c809d6-b0d5-496c-b9fd-9f63a41ba224",
       "values": [
         {
           "language_id": "22",
@@ -207,69 +146,6 @@
         },
         {
           "language_id": "23",
-          "value": "",
-          "content_type": ["text", "image", "video"],
-          "modes": ["offline"]
-        },
-        {
-          "language_id": "22",
-          "content_type": "text",
-          "modes": ["sms"],
-          "value": "hello world"
-        },
-        {
-          "language_id": "22",
-          "content_type": "text",
-          "modes": ["rich_messaging"],
-          "value": "hello world"
-        }
-      ]
-    },
-    {
-      "uuid": "38f033b3-38a1-414f-991d-e45500334f9d",
-      "values": []
-    },
-    {
-      "uuid": "a6f3d1bb-ef93-49f5-9e31-9fa807c85b0c",
-      "values": []
-    },
-    {
-      "uuid": "2c5ff5b5-560b-452a-9648-43ab902099c0",
-      "values": []
-    },
-    {
-      "uuid": "67bbc6ba-8255-4b83-b340-59aba54ba82b",
-      "values": []
-    },
-    {
-      "uuid": "8aacebc3-868e-4426-8275-ddd696500ff4",
-      "values": [
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text"],
-          "modes": ["sms"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text"],
-          "modes": ["ussd"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["audio"],
-          "modes": ["ivr"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text", "image", "video"],
-          "modes": ["rich_messaging"]
-        },
-        {
-          "language_id": "22",
           "value": "",
           "content_type": ["text", "image", "video"],
           "modes": ["offline"]
@@ -278,16 +154,12 @@
           "language_id": "22",
           "content_type": "text",
           "modes": ["rich_messaging"],
-          "value": "hello world"
+          "value": "option 1"
         }
       ]
     },
     {
-      "uuid": "42ec072f-0306-4770-be8a-e20582aebf48",
-      "values": []
-    },
-    {
-      "uuid": "d2b6cd59-896d-4fbf-9de0-48d0227347ff",
+      "uuid": "0352349c-f29d-4ed4-922a-ea10b2345a68",
       "values": [
         {
           "language_id": "22",
@@ -320,15 +192,45 @@
           "modes": ["offline"]
         },
         {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
           "language_id": "22",
           "content_type": "text",
           "modes": ["rich_messaging"],
-          "value": "first"
+          "value": "prompt"
         }
       ]
     },
     {
-      "uuid": "b273fd79-6d04-442d-8540-3e288da088b5",
+      "uuid": "faf50b10-4d1b-44e1-a1fc-cc4746baf3e3",
       "values": [
         {
           "language_id": "22",
@@ -361,42 +263,31 @@
           "modes": ["offline"]
         },
         {
-          "language_id": "22",
-          "content_type": "text",
-          "modes": ["rich_messaging"],
-          "value": "prompt question"
-        }
-      ]
-    },
-    {
-      "uuid": "96a4a40a-5b78-4d0c-ae55-6ac18108e296",
-      "values": [
-        {
-          "language_id": "22",
+          "language_id": "23",
           "value": "",
           "content_type": ["text"],
           "modes": ["sms"]
         },
         {
-          "language_id": "22",
+          "language_id": "23",
           "value": "",
           "content_type": ["text"],
           "modes": ["ussd"]
         },
         {
-          "language_id": "22",
+          "language_id": "23",
           "value": "",
           "content_type": ["audio"],
           "modes": ["ivr"]
         },
         {
-          "language_id": "22",
+          "language_id": "23",
           "value": "",
           "content_type": ["text", "image", "video"],
           "modes": ["rich_messaging"]
         },
         {
-          "language_id": "22",
+          "language_id": "23",
           "value": "",
           "content_type": ["text", "image", "video"],
           "modes": ["offline"]
@@ -410,7 +301,7 @@
       ]
     },
     {
-      "uuid": "8bfaf7d2-ff7e-4421-9501-c62c533dc266",
+      "uuid": "9212189c-5c74-4f71-84fe-d73142d34569",
       "values": [
         {
           "language_id": "22",
@@ -438,6 +329,36 @@
         },
         {
           "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
           "value": "",
           "content_type": ["text", "image", "video"],
           "modes": ["offline"]
@@ -451,15 +372,15 @@
       ]
     },
     {
-      "uuid": "19b2193d-978c-474e-9869-0777164330f8",
+      "uuid": "30f3bab9-6d94-4deb-b2c2-ddc406d178e6",
       "values": []
     },
     {
-      "uuid": "da073143-6ad5-4c49-aa84-bd501d2e8b70",
+      "uuid": "ea13f62c-360e-403f-a112-fbf04a650246",
       "values": []
     },
     {
-      "uuid": "8ad5f2de-9779-4df1-bd87-7e9fa75dfe0b",
+      "uuid": "566e9921-0ade-49c0-a405-c9f15383b7d7",
       "values": [
         {
           "language_id": "22",
@@ -495,12 +416,12 @@
           "language_id": "22",
           "content_type": "text",
           "modes": ["rich_messaging"],
-          "value": "second"
+          "value": "option 2"
         }
       ]
     },
     {
-      "uuid": "fc627538-f781-4c99-bd46-f28024abdea7",
+      "uuid": "e4ec01a5-3845-4ca9-8c16-aea33021cacb",
       "values": [
         {
           "language_id": "22",
@@ -535,11 +456,11 @@
       ]
     },
     {
-      "uuid": "503e01d3-883f-44dd-8747-cae00b8ac489",
+      "uuid": "5672447e-a4f9-42f1-a541-c0b4a0002cd3",
       "values": []
     },
     {
-      "uuid": "ac15d420-db53-4d20-bca7-423b7f931a67",
+      "uuid": "dc8011be-661b-4edf-8f41-f860ecabda97",
       "values": [
         {
           "language_id": "22",
@@ -575,12 +496,12 @@
           "language_id": "22",
           "content_type": "text",
           "modes": ["rich_messaging"],
-          "value": "third"
+          "value": "option 3"
         }
       ]
     },
     {
-      "uuid": "6bf29cd6-e6e5-4202-a751-092dc1b27b84",
+      "uuid": "e9d24baf-0727-4453-9983-3d0959a41331",
       "values": [
         {
           "language_id": "22",
@@ -615,11 +536,11 @@
       ]
     },
     {
-      "uuid": "dedd9218-84eb-4405-8732-6671702095b1",
+      "uuid": "61f3cf19-d4ec-4e4a-b928-78d832e30e70",
       "values": []
     },
     {
-      "uuid": "1d2c57d5-bb9c-40aa-8e0c-235fc856a36f",
+      "uuid": "3db10f1a-b937-4181-bede-e0ea241f1eb0",
       "values": [
         {
           "language_id": "22",
@@ -654,7 +575,7 @@
       ]
     },
     {
-      "uuid": "32ba90c6-c720-499a-ad7a-e994eb7db205",
+      "uuid": "368686c9-08ac-409c-a40d-72ba22f0336c",
       "values": [
         {
           "language_id": "22",
@@ -689,50 +610,7 @@
       ]
     },
     {
-      "uuid": "94045443-f38a-40bb-8ae8-3383d2668cd2",
-      "values": []
-    },
-    {
-      "uuid": "1d243171-72e8-473d-a675-179f90129fa4",
-      "values": [
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text"],
-          "modes": ["sms"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text"],
-          "modes": ["ussd"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["audio"],
-          "modes": ["ivr"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text", "image", "video"],
-          "modes": ["rich_messaging"]
-        },
-        {
-          "language_id": "22",
-          "value": "",
-          "content_type": ["text", "image", "video"],
-          "modes": ["offline"]
-        }
-      ]
-    },
-    {
-      "uuid": "5e577b3e-f8fd-42f2-8222-0079530796ed",
-      "values": []
-    },
-    {
-      "uuid": "5415bb5b-f73c-418e-9eed-cdfba0dc08fd",
+      "uuid": "2f56a55f-5edf-4875-9ca8-427cf76e4925",
       "values": []
     }
   ]
