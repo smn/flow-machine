@@ -1,8 +1,6 @@
 defmodule FlowMachine.SpecLoader do
   @moduledoc """
   A macro to help loading of JSON floip specs into structs.
-  It will automatically convert `camelCase` key names to
-  `snake_case` keys if they're in the struct definition.
 
   Some keys need some extra help when loading, for when that is the
   case list those key names under the `manual` key. Setting
@@ -15,9 +13,9 @@ defmodule FlowMachine.SpecLoader do
     end
 
     defmodule FlowMachiine.SomeSpecType do
-      use FlowMachine.SpecLoader, manual: ["someField"]
+      use FlowMachine.SpecLoader, manual: ["some_field"]
 
-      def load_key(some_spec, "someField", value) do
+      def load_key(some_spec, "some_field", value) do
         %{some_spec | some_field: parse(value)}
       end
     end

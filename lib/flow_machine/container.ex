@@ -9,7 +9,7 @@ defmodule FlowMachine.Container do
             uuid: nil,
             name: nil,
             description: nil,
-            platform_metadata: %{},
+            vendor_metadata: %{},
             flows: [],
             resources: %{}
 
@@ -18,7 +18,7 @@ defmodule FlowMachine.Container do
           uuid: binary,
           name: String.t(),
           description: String.t(),
-          platform_metadata: map,
+          vendor_metadata: map,
           flows: [FlowMachine.Flow.t()],
           resources: [FlowMachine.Resource.t()]
         }

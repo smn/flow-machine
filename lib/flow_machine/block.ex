@@ -9,7 +9,7 @@ defmodule FlowMachine.Block do
             name: nil,
             label: nil,
             semantic_label: nil,
-            platform_metadata: %{},
+            vendor_metadata: %{},
             type: nil,
             config: %{},
             exits: []
@@ -19,7 +19,7 @@ defmodule FlowMachine.Block do
           name: String.t(),
           label: String.t() | nil,
           semantic_label: String.t() | nil,
-          platform_metadata: map,
+          vendor_metadata: map,
           type: String.t(),
           config: map,
           exits: [FlowMachine.BlockExit.t()]

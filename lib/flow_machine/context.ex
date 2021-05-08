@@ -7,14 +7,14 @@ defmodule FlowMachine.Context do
   """
   use FlowMachine.SpecLoader,
     manual: [
-      "createdAt",
+      "created_at",
       "contact",
       "cursor",
-      "entryAt",
+      "entry_at",
       "flows",
       "interactions",
       "resources",
-      "reversibleOperations",
+      "reversible_operations",
       "logs"
     ]
 
@@ -41,7 +41,7 @@ defmodule FlowMachine.Context do
             flows: [],
             first_flow_id: nil,
             resources: %{},
-            platform_metadata: %{},
+            vendor_metadata: %{},
             logs: %{},
             specification_version: nil
 
@@ -67,7 +67,7 @@ defmodule FlowMachine.Context do
           flows: [FlowMachine.Flow.t()],
           first_flow_id: binary,
           resources: [FlowMachine.ResourceDefinition.t()],
-          platform_metadata: map,
+          vendor_metadata: map,
           logs: map,
           specification_version: binary | nil
         }
@@ -206,7 +206,7 @@ defmodule FlowMachine.Context do
   #   end)
   # end
 
-  def load_key(context, "createdAt", value),
+  def load_key(context, "created_at", value),
     do: %{context | created_at: FlowMachine.Helpers.from_iso8601!(value)}
 
   def load_key(context, "contact", value),
@@ -214,7 +214,7 @@ defmodule FlowMachine.Context do
 
   def load_key(context, "cursor", value), do: %{context | cursor: FlowMachine.Cursor.load(value)}
 
-  def load_key(context, "entryAt", value),
+  def load_key(context, "entry_at", value),
     do: %{context | entry_at: FlowMachine.Helpers.from_iso8601!(value)}
 
   def load_key(context, "flows", value),
@@ -226,7 +226,7 @@ defmodule FlowMachine.Context do
   def load_key(context, "resources", value),
     do: %{context | resources: Enum.map(value, &FlowMachine.Resource.load/1)}
 
-  def load_key(context, "reversibleOperations", value),
+  def load_key(context, "reversible_operations", value),
     do: %{
       context
       | reversible_operations: Enum.map(value, &FlowMachine.ReversibleOperation.load/1)

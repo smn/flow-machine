@@ -1,6 +1,6 @@
 defmodule FlowMachine.BlockInteraction do
   @moduledoc false
-  use FlowMachine.SpecLoader, manual: ["entryAt", "exitAt"]
+  use FlowMachine.SpecLoader, manual: ["entry_at", "exit_at"]
 
   defstruct uuid: nil,
             block_id: nil,
@@ -30,9 +30,9 @@ defmodule FlowMachine.BlockInteraction do
           origin_flow_id: binary | nil
         }
 
-  def load_key(block_interaction, "entryAt", value),
+  def load_key(block_interaction, "entry_at", value),
     do: %{block_interaction | entry_at: FlowMachine.Helpers.from_iso8601!(value)}
 
-  def load_key(block_interaction, "exitAt", value),
+  def load_key(block_interaction, "exit_at", value),
     do: %{block_interaction | exit_at: FlowMachine.Helpers.from_iso8601!(value)}
 end
