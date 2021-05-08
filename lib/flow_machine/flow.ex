@@ -2,7 +2,7 @@ defmodule FlowMachine.Flow do
   @moduledoc """
   A Flow represents a set of Blocks and their direct connections.
   """
-  use FlowMachine.SpecLoader, manual: ["last_modified", "blocks", "sessions"]
+  use FlowMachine.SpecLoader, manual: ["last_modified", "blocks", "sessions", "platform_metadata"]
 
   defstruct id: nil,
             org_id: nil,
@@ -40,11 +40,14 @@ defmodule FlowMachine.Flow do
           sessions: [map]
         }
 
+  def load_key(flow, "blocks", value),
+    do: %{flow | blocks: Enum.map(value, &FlowMachine.Block.load/1)}
+
   def load_key(flow, "last_modified", value),
     do: %{flow | last_modified: FlowMachine.Helpers.from_iso8601!(value)}
 
-  def load_key(flow, "blocks", value),
-    do: %{flow | blocks: Enum.map(value, &FlowMachine.Block.load/1)}
+  def load_key(flow, "platform_metadata", value),
+    do: %{flow | vendor_metadata: value}
 
   def load_key(flow, "sessions", value), do: %{flow | sessions: [value | flow.sessions]}
 end

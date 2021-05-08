@@ -3,7 +3,7 @@ defmodule FlowMachine.Block do
   A block in a flow, the first block in a flow's
   blocks list is the starting point of a flow
   """
-  use FlowMachine.SpecLoader, manual: ["exits"]
+  use FlowMachine.SpecLoader, manual: ["exits", "platform_metadata"]
 
   defstruct uuid: nil,
             name: nil,
@@ -27,4 +27,7 @@ defmodule FlowMachine.Block do
 
   def load_key(block, "exits", value),
     do: %{block | exits: Enum.map(value, &FlowMachine.BlockExit.load/1)}
+
+  def load_key(flow, "platform_metadata", value),
+    do: %{flow | vendor_metadata: value}
 end
