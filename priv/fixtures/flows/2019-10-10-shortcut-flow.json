@@ -2,24 +2,24 @@
   "uuid": "5b8c87d6-de90-4bc4-8668-4f040000006e",
   "name": "Clipboard Shortcut Tree For Backtracking",
   "label": "",
-  "last_modified": "2019-10-10 23:46:30.000000+00:00",
-  "interaction_timeout": 172800,
-  "supported_modes": [],
+  "lastModified": "2019-10-10 23:46:30.000000+00:00",
+  "interactionTimeout": 172800,
+  "supportedModes": [],
   "languages": [
     {
       "id": "22",
       "name": "enCA",
       "abbreviation": "EN",
-      "org_id": "1008107874829627392",
-      "right_to_left": false,
+      "orgId": "1008107874829627392",
+      "rightToLeft": false,
       "code": null,
-      "deleted_at": null
+      "deletedAt": null
     }
   ],
-  "vendor_metadata": {
+  "platformMetadata": {
     "io_viamo": {
-      "org_id": "1008107874829627392",
-      "tree_id": "116"
+      "orgId": "1008107874829627392",
+      "treeId": "116"
     }
   },
   "blocks": [
@@ -27,7 +27,7 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc",
       "name": "1570737014110_68",
       "label": "Do you have more children to add?",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "choices": {
           "yes": "29841127-3247-461e-829a-89c000000000",
@@ -35,10 +35,10 @@
         },
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MultipleChoiceQuestionBlock",
-          "custom_data": {
+          "customData": {
             "title": "Do you have more children to add?",
             "label": "",
             "tags": [],
@@ -46,126 +46,126 @@
               "22": false
             },
             "branching": 1,
-            "add_exit_for_no_response": 0,
+            "addExitForNoResponse": 0,
             "choices": [
               "Yes",
               "No"
             ],
-            "num_choices": 2,
-            "property_field_id": null
+            "numChoices": 2,
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 147,
-            "y_position": 107,
-            "num_connections": 2,
-            "output_names": [
+          "uiData": {
+            "xPosition": 147,
+            "yPosition": 107,
+            "numConnections": 2,
+            "outputNames": [
               "Yes",
               "No"
             ],
-            "field_labels": [
+            "fieldLabels": [
               1,
               2
             ]
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "Do you have more children to add?"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737014110_68"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737014110_68"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc5199dc271",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb92536d34",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb92536d34",
           "tag": "Yes",
           "label": "29841127-3247-4610-8037-cdc5199dc271",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '1'), AND(channel.mode != 'ivr', OR(block.value = '1', LOWER(block.value) = 'yes'))))"
         },
         {
           "uuid": "29841127-3247-4610-8037-cdc5199dc272",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb93718673",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb93718673",
           "tag": "No",
           "label": "29841127-3247-4610-8037-cdc5199dc272",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '2'), AND(channel.mode != 'ivr', OR(block.value = '2', LOWER(block.value) = 'no'))))"
         }
       ],
-      "type": "MobilePrimitives.SelectOneResponse"
+      "type": "MobilePrimitives\\SelectOneResponse"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb92536d34",
       "name": "1570737039229_96",
       "label": "What is their age?",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
-        "validation_minimum": 0,
-        "validation_maximum": 999,
+        "validationMinimum": 0,
+        "validationMaximum": 999,
         "ivr": {
-          "max_digits": 3
+          "maxDigits": 3
         },
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb92536d34"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "NumericQuestionBlock",
-          "custom_data": {
+          "customData": {
             "title": "What is their age?",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "property_field_id": null
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 139,
-            "y_position": 295,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 139,
+            "yPosition": 295,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "What is their age?"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737039229_96"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737039229_96"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc52896a851",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb92667e05",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb92667e05",
           "tag": "1",
           "label": "29841127-3247-4610-8037-cdc52896a851",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.NumericResponse"
+      "type": "MobilePrimitives\\NumericResponse"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb92667e05",
       "name": "1570737051724_85",
       "label": "",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": [],
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "NumericBranchBlock",
-          "custom_data": {
+          "customData": {
             "title": "",
             "label": "",
             "tags": [],
@@ -176,106 +176,106 @@
               {
                 "conditions": [
                   {
-                    "js_key": "block_1570737039229_96",
+                    "jsKey": "block_1570737039229_96",
                     "value": 18
                   }
                 ]
               }
             ],
-            "property_field_id": null
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 139,
-            "y_position": 445,
-            "num_connections": 2
+          "uiData": {
+            "xPosition": 139,
+            "yPosition": 445,
+            "numConnections": 2
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": [],
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737051724_85"
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": [],
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737051724_85"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc5300939f5",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb92b0431d",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb92b0431d",
           "tag": "1",
           "label": "29841127-3247-4610-8037-cdc5300939f5",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(flow.1570737039229_96.value > 18)"
         },
         {
           "uuid": "29841127-3247-4610-8037-cdc5300939f6",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb93117c75",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb93117c75",
           "default": true,
           "tag": "DEFAULT",
           "label": "29841127-3247-4610-8037-cdc5300939f6",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "Core.Case"
+      "type": "Core\\Case"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb92b0431d",
       "name": "1570737100070_69",
       "label": "They aren't a child if they're over 18",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb92b0431d"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MessageBlock",
-          "custom_data": {
+          "customData": {
             "title": "They aren't a child if they're over 18",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "property_field_id": null
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": -80,
-            "y_position": 627,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": -80,
+            "yPosition": 627,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "They aren't a child if they're over 18"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737100070_69"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737100070_69"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc54cda3755",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc",
           "tag": "1",
           "label": "29841127-3247-4610-8037-cdc54cda3755",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.Message"
+      "type": "MobilePrimitives\\Message"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb93117c75",
       "name": "1570737163787_41",
       "label": "Do they enjoy reading?",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "choices": {
           "yes": "29841127-3247-461e-829c-9fe800000000",
@@ -283,10 +283,10 @@
         },
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb93117c75"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MultipleChoiceQuestionBlock",
-          "custom_data": {
+          "customData": {
             "title": "Do they enjoy reading?",
             "label": "",
             "tags": [],
@@ -294,218 +294,218 @@
               "22": false
             },
             "branching": 1,
-            "add_exit_for_no_response": 0,
+            "addExitForNoResponse": 0,
             "choices": [
               "Yes",
               "No"
             ],
-            "num_choices": 2,
-            "property_field_id": null
+            "numChoices": 2,
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 171,
-            "y_position": 615,
-            "num_connections": 2,
-            "output_names": [
+          "uiData": {
+            "xPosition": 171,
+            "yPosition": 615,
+            "numConnections": 2,
+            "outputNames": [
               "Yes",
               "No"
             ],
-            "field_labels": [
+            "fieldLabels": [
               1,
               2
             ]
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "Do they enjoy reading?"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737163787_41"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737163787_41"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc572d49db5",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb933994fe",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb933994fe",
           "tag": "Yes",
           "label": "29841127-3247-4610-8037-cdc572d49db5",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '1'), AND(channel.mode != 'ivr', OR(block.value = '1', LOWER(block.value) = 'yes'))))"
         },
         {
           "uuid": "29841127-3247-4610-8037-cdc572d49db6",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb935c202f",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb935c202f",
           "tag": "No",
           "label": "29841127-3247-4610-8037-cdc572d49db6",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '2'), AND(channel.mode != 'ivr', OR(block.value = '2', LOWER(block.value) = 'no'))))"
         }
       ],
-      "type": "MobilePrimitives.SelectOneResponse"
+      "type": "MobilePrimitives\\SelectOneResponse"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb933994fe",
       "name": "1570737190064_62",
       "label": "How many books per year do they read?",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
-        "validation_minimum": 0,
-        "validation_maximum": 999,
+        "validationMinimum": 0,
+        "validationMaximum": 999,
         "ivr": {
-          "max_digits": 3
+          "maxDigits": 3
         },
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb933994fe"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "NumericQuestionBlock",
-          "custom_data": {
+          "customData": {
             "title": "How many books per year do they read?",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "property_field_id": null
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 103,
-            "y_position": 782,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 103,
+            "yPosition": 782,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "How many books per year do they read?"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737190064_62"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737190064_62"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc5827e3339",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb935c202f",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb935c202f",
           "tag": "1",
           "label": "29841127-3247-4610-8037-cdc5827e3339",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.NumericResponse"
+      "type": "MobilePrimitives\\NumericResponse"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb935c202f",
       "name": "1570737212703_19",
       "label": "What is thier name?",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "ivr": {
-          "max_duration_seconds": 60
+          "maxDurationSeconds": 60
         },
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb935c202f"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "OpenQuestionBlock",
-          "custom_data": {
+          "customData": {
             "title": "What is thier name?",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "property_field_id": null
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 443,
-            "y_position": 970,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 443,
+            "yPosition": 970,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "What is thier name?"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737212703_19"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737212703_19"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc58ffc925d",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc",
           "tag": "1",
           "label": "29841127-3247-4610-8037-cdc58ffc925d",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.OpenResponse"
+      "type": "MobilePrimitives\\OpenResponse"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb93718673",
       "name": "1570737226727_55",
       "label": "Thanks for entering info about your dependents",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "prompt": "95bd9e4a-93cd-46f2-9b43-8edb93718673"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MessageBlock",
-          "custom_data": {
+          "customData": {
             "title": "Thanks for entering info about your dependents",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "property_field_id": null
+            "propertyFieldId": null
           },
-          "ui_data": {
-            "x_position": 443,
-            "y_position": 272,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 443,
+            "yPosition": 272,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "Thanks for entering info about your dependents"
           },
-          "sms_autogen_langs": [],
-          "ussd_autogen_langs": [],
-          "social_autogen_langs": [],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570737226727_55"
+          "smsAutogenLangs": [],
+          "ussdAutogenLangs": [],
+          "socialAutogenLangs": [],
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570737226727_55"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-cdc5985884ed",
-          "destination_block": null,
+          "destinationBlock": null,
           "tag": "1",
           "label": "29841127-3247-4610-8037-cdc5985884ed",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.Message"
+      "type": "MobilePrimitives\\Message"
     }
   ],
   "resources": [
@@ -513,14 +513,14 @@
       "uuid": "29841127-3247-461e-829a-89c000000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Yes"
         }
@@ -530,14 +530,14 @@
       "uuid": "29841127-3247-461e-829a-94d800000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "No"
         }
@@ -547,14 +547,14 @@
       "uuid": "29841127-3247-4610-8037-cdc5199dc271",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Yes"
         }
@@ -564,14 +564,14 @@
       "uuid": "29841127-3247-4610-8037-cdc5199dc272",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "No"
         }
@@ -581,10 +581,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb922d18fc",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "Do you have more children to add?"
         }
@@ -594,14 +594,14 @@
       "uuid": "29841127-3247-4610-8037-cdc52896a851",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -611,10 +611,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb92536d34",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "What is their age?"
         }
@@ -624,14 +624,14 @@
       "uuid": "29841127-3247-4610-8037-cdc5300939f5",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -641,14 +641,14 @@
       "uuid": "29841127-3247-4610-8037-cdc5300939f6",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "DEFAULT"
         }
@@ -658,14 +658,14 @@
       "uuid": "29841127-3247-4610-8037-cdc54cda3755",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -675,10 +675,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb92b0431d",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "They aren't a child if they're over 18"
         }
@@ -688,14 +688,14 @@
       "uuid": "29841127-3247-461e-829c-9fe800000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Yes"
         }
@@ -705,14 +705,14 @@
       "uuid": "29841127-3247-461e-829c-ab6800000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "No"
         }
@@ -722,14 +722,14 @@
       "uuid": "29841127-3247-4610-8037-cdc572d49db5",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Yes"
         }
@@ -739,14 +739,14 @@
       "uuid": "29841127-3247-4610-8037-cdc572d49db6",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "No"
         }
@@ -756,10 +756,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb93117c75",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "Do they enjoy reading?"
         }
@@ -769,14 +769,14 @@
       "uuid": "29841127-3247-4610-8037-cdc5827e3339",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -786,10 +786,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb933994fe",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "How many books per year do they read?"
         }
@@ -799,14 +799,14 @@
       "uuid": "29841127-3247-4610-8037-cdc58ffc925d",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -816,10 +816,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb935c202f",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "What is thier name?"
         }
@@ -829,14 +829,14 @@
       "uuid": "29841127-3247-4610-8037-cdc5985884ed",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -846,10 +846,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8edb93718673",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "Thanks for entering info about your dependents"
         }

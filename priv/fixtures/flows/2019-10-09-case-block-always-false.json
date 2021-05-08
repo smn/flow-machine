@@ -2,16 +2,16 @@
   "uuid": "5b8c87d6-de90-4bc4-8668-4f040000006b",
   "name": "Case Block",
   "label": "",
-  "last_modified": "2019-10-04 21:05:25.000000+00:00",
-  "interaction_timeout": 172800,
-  "supported_modes": [],
+  "lastModified": "2019-10-04 21:05:25.000000+00:00",
+  "interactionTimeout": 172800,
+  "supportedModes": [],
   "languages": [
     "22"
   ],
-  "vendor_metadata": {
+  "platformMetadata": {
     "io_viamo": {
-      "org_id": "1008107874829627392",
-      "tree_id": "113"
+      "orgId": "1008107874829627392",
+      "treeId": "113"
     }
   },
   "blocks": [
@@ -19,7 +19,7 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf93e49573",
       "name": "1570221906056_83",
       "label": "Choose One",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "choices": {
           "true": "29841127-3247-4618-8e53-cdc400000000",
@@ -29,10 +29,10 @@
         },
         "prompt": "95bd9e4a-93cd-46f2-9b43-8ecf93e49573"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MultipleChoiceQuestionBlock",
-          "custom_data": {
+          "customData": {
             "title": "Choose One",
             "label": "",
             "tags": [],
@@ -40,100 +40,100 @@
               "22": false
             },
             "branching": 1,
-            "add_exit_for_no_response": 0,
+            "addExitForNoResponse": 0,
             "choices": [
               "True",
               "False",
               "Why Not Option 3?",
               "Unchoosable (Seriously this breaks the tree)"
             ],
-            "num_choices": 4
+            "numChoices": 4
           },
-          "ui_data": {
-            "x_position": 533,
-            "y_position": 50,
-            "num_connections": 4,
-            "output_names": [
+          "uiData": {
+            "xPosition": 533,
+            "yPosition": 50,
+            "numConnections": 4,
+            "outputNames": [
               "True",
               "False",
               "Why Not Option 3?",
               "Unchoosable (Seriously this breaks the tree)"
             ],
-            "field_labels": [
+            "fieldLabels": [
               1,
               2,
               3,
               4
             ]
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "Choose one"
           },
-          "sms_autogen_langs": [
+          "smsAutogenLangs": [
             22
           ],
-          "ussd_autogen_langs": [
+          "ussdAutogenLangs": [
             22
           ],
-          "social_autogen_langs": [
+          "socialAutogenLangs": [
             22
           ],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570221906056_83"
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570221906056_83"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-c915c54a60ed",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
           "tag": "True",
           "label": "29841127-3247-4610-8037-c915c54a60ed",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '1'), AND(channel.mode != 'ivr', OR(block.value = '1', LOWER(block.value) = 'true'))))"
         },
         {
           "uuid": "29841127-3247-4610-8037-c915c54a60ee",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
           "tag": "False",
           "label": "29841127-3247-4610-8037-c915c54a60ee",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '2'), AND(channel.mode != 'ivr', OR(block.value = '2', LOWER(block.value) = 'false'))))"
         },
         {
           "uuid": "29841127-3247-4610-8037-c915c54a60ef",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
           "tag": "Why Not Option 3?",
           "label": "29841127-3247-4610-8037-c915c54a60ef",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '3'), AND(channel.mode != 'ivr', OR(block.value = '3', LOWER(block.value) = 'why not option 3?'))))"
         },
         {
           "uuid": "29841127-3247-4610-8037-c915c54a60f0",
-          "destination_block": null,
+          "destinationBlock": null,
           "tag": "Unchoosable (Seriously this breaks the tree)",
           "label": "29841127-3247-4610-8037-c915c54a60f0",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(AND(channel.mode = 'ivr', block.value = '4'), AND(channel.mode != 'ivr', OR(block.value = '4', LOWER(block.value) = 'unchoosable (seriously this breaks the tree)'))))"
         }
       ],
-      "type": "MobilePrimitives.SelectOneResponse"
+      "type": "MobilePrimitives\\SelectOneResponse"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf93fdc8f2",
       "name": "1570221922572_66",
       "label": "True",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "prompt": "95bd9e4a-93cd-46f2-9b43-8ecf93fdc8f2"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MessageBlock",
-          "custom_data": {
+          "customData": {
             "title": "True",
             "label": "",
             "tags": [],
@@ -141,212 +141,212 @@
               "22": false
             }
           },
-          "ui_data": {
-            "x_position": 213,
-            "y_position": 558,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 213,
+            "yPosition": 558,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "You Selected True"
           },
-          "sms_autogen_langs": [
+          "smsAutogenLangs": [
             22
           ],
-          "ussd_autogen_langs": [
+          "ussdAutogenLangs": [
             22
           ],
-          "social_autogen_langs": [
+          "socialAutogenLangs": [
             22
           ],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570221922572_66"
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570221922572_66"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-c915cf227e89",
-          "destination_block": null,
+          "destinationBlock": null,
           "tag": "1",
           "label": "29841127-3247-4610-8037-c915cf227e89",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.Message"
+      "type": "MobilePrimitives\\Message"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf940b278e",
       "name": "1570221931334_54",
       "label": "If any of the following are true...",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": [],
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "DecisionBranchBlock",
-          "custom_data": {
+          "customData": {
             "title": "If any of the following are true...",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "question_blocks": [
+            "questionBlocks": [
               {
-                "js_key": "block_1570221906056_83",
+                "jsKey": "block_1570221906056_83",
                 "choice": 1,
-                "directory_selection_field_value": null,
-                "directory_selection_field_name": null
+                "directorySelectionFieldValue": null,
+                "directorySelectionFieldName": null
               },
               {
-                "js_key": "block_1570221906056_83",
+                "jsKey": "block_1570221906056_83",
                 "choice": 4,
-                "directory_selection_field_value": null,
-                "directory_selection_field_name": null
+                "directorySelectionFieldValue": null,
+                "directorySelectionFieldName": null
               }
             ],
             "logic": "any"
           },
-          "ui_data": {
-            "output_names": [
+          "uiData": {
+            "outputNames": [
               "trees.output-true",
               "trees.output-false"
             ],
-            "x_position": 526,
-            "y_position": 250,
-            "num_connections": 2
+            "xPosition": 526,
+            "yPosition": 250,
+            "numConnections": 2
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": [],
-          "sms_autogen_langs": [
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": [],
+          "smsAutogenLangs": [
             22
           ],
-          "ussd_autogen_langs": [
+          "ussdAutogenLangs": [
             22
           ],
-          "social_autogen_langs": [
+          "socialAutogenLangs": [
             22
           ],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570221931334_54"
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570221931334_54"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-c915d45b7379",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf93fdc8f2",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf93fdc8f2",
           "tag": "TRUE",
           "label": "29841127-3247-4610-8037-c915d45b7379",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(flow.1570221906056_83.value = 1, flow.1570221906056_83.value = 4))"
         },
         {
           "uuid": "29841127-3247-4610-8037-c915d45b737a",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf9437b3e0",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf9437b3e0",
           "tag": "FALSE",
           "label": "29841127-3247-4610-8037-c915d45b737a",
-          "semantic_label": "",
+          "semanticLabel": "",
           "default": true
         }
       ],
-      "type": "Core.Case"
+      "type": "Core\\Case"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf9437b3e0",
       "name": "1570221960529_60",
       "label": "If all of the following are true...",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": [],
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "DecisionBranchBlock",
-          "custom_data": {
+          "customData": {
             "title": "If all of the following are true...",
             "label": "",
             "tags": [],
             "reviewed": {
               "22": false
             },
-            "question_blocks": [
+            "questionBlocks": [
               {
-                "js_key": "block_1570221906056_83",
+                "jsKey": "block_1570221906056_83",
                 "choice": 2,
-                "directory_selection_field_value": null,
-                "directory_selection_field_name": null
+                "directorySelectionFieldValue": null,
+                "directorySelectionFieldName": null
               },
               {
-                "js_key": "block_1570221906056_83",
+                "jsKey": "block_1570221906056_83",
                 "choice": 4,
-                "directory_selection_field_value": null,
-                "directory_selection_field_name": null
+                "directorySelectionFieldValue": null,
+                "directorySelectionFieldName": null
               }
             ],
             "logic": "any"
           },
-          "ui_data": {
-            "output_names": [
+          "uiData": {
+            "outputNames": [
               "trees.output-true",
               "trees.output-false"
             ],
-            "x_position": 680,
-            "y_position": 413,
-            "num_connections": 2
+            "xPosition": 680,
+            "yPosition": 413,
+            "numConnections": 2
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": [],
-          "sms_autogen_langs": [
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": [],
+          "smsAutogenLangs": [
             22
           ],
-          "ussd_autogen_langs": [
+          "ussdAutogenLangs": [
             22
           ],
-          "social_autogen_langs": [
+          "socialAutogenLangs": [
             22
           ],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570221960529_60"
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570221960529_60"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-c915e5c24381",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf9449d1c2",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf9449d1c2",
           "tag": "TRUE",
           "label": "29841127-3247-4610-8037-c915e5c24381",
-          "semantic_label": "",
+          "semanticLabel": "",
           "test": "@(OR(flow.1570221906056_83.value = 2, flow.1570221906056_83.value = 4))"
         },
         {
           "uuid": "29841127-3247-4610-8037-c915e5c24382",
-          "destination_block": "95bd9e4a-93cd-46f2-9b43-8ecf944ad757",
+          "destinationBlock": "95bd9e4a-93cd-46f2-9b43-8ecf944ad757",
           "tag": "FALSE",
           "label": "29841127-3247-4610-8037-c915e5c24382",
-          "semantic_label": "",
+          "semanticLabel": "",
           "default": true
         }
       ],
-      "type": "Core.Case"
+      "type": "Core\\Case"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf9449d1c2",
       "name": "1570221972402_58",
       "label": "False",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "prompt": "95bd9e4a-93cd-46f2-9b43-8ecf9449d1c2"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MessageBlock",
-          "custom_data": {
+          "customData": {
             "title": "False",
             "label": "",
             "tags": [],
@@ -354,54 +354,54 @@
               "22": false
             }
           },
-          "ui_data": {
-            "x_position": 508,
-            "y_position": 625,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 508,
+            "yPosition": 625,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "You selected False"
           },
-          "sms_autogen_langs": [
+          "smsAutogenLangs": [
             22
           ],
-          "ussd_autogen_langs": [
+          "ussdAutogenLangs": [
             22
           ],
-          "social_autogen_langs": [
+          "socialAutogenLangs": [
             22
           ],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570221972402_58"
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570221972402_58"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-c915ecd5efc9",
-          "destination_block": null,
+          "destinationBlock": null,
           "tag": "1",
           "label": "29841127-3247-4610-8037-c915ecd5efc9",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.Message"
+      "type": "MobilePrimitives\\Message"
     },
     {
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf944ad757",
       "name": "1570221973072_23",
       "label": "Option 3",
-      "semantic_label": "",
+      "semanticLabel": "",
       "config": {
         "prompt": "95bd9e4a-93cd-46f2-9b43-8ecf944ad757"
       },
-      "vendor_metadata": {
+      "platformMetadata": {
         "io_viamo": {
           "type": "MessageBlock",
-          "custom_data": {
+          "customData": {
             "title": "Option 3",
             "label": "",
             "tags": [],
@@ -409,41 +409,41 @@
               "22": false
             }
           },
-          "ui_data": {
-            "x_position": 908,
-            "y_position": 603,
-            "num_connections": 1
+          "uiData": {
+            "xPosition": 908,
+            "yPosition": 603,
+            "numConnections": 1
           },
-          "audio_files": [],
-          "sms_content": [],
-          "ussd_content": [],
-          "social_content": [],
-          "clipboard_content": {
+          "audioFiles": [],
+          "smsContent": [],
+          "ussdContent": [],
+          "socialContent": [],
+          "clipboardContent": {
             "22": "You can't have it both ways"
           },
-          "sms_autogen_langs": [
+          "smsAutogenLangs": [
             22
           ],
-          "ussd_autogen_langs": [
+          "ussdAutogenLangs": [
             22
           ],
-          "social_autogen_langs": [
+          "socialAutogenLangs": [
             22
           ],
-          "clipboard_autogen_langs": [],
-          "js_key": "block_1570221973072_23"
+          "clipboardAutogenLangs": [],
+          "jsKey": "block_1570221973072_23"
         }
       },
       "exits": [
         {
           "uuid": "29841127-3247-4610-8037-c915ed3c1dfd",
-          "destination_block": null,
+          "destinationBlock": null,
           "tag": "1",
           "label": "29841127-3247-4610-8037-c915ed3c1dfd",
-          "semantic_label": ""
+          "semanticLabel": ""
         }
       ],
-      "type": "MobilePrimitives.Message"
+      "type": "MobilePrimitives\\Message"
     }
   ],
   "resources": [
@@ -451,14 +451,14 @@
       "uuid": "29841127-3247-4618-8e53-cdc400000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "True"
         }
@@ -468,14 +468,14 @@
       "uuid": "29841127-3247-4618-8e53-db0800000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "False"
         }
@@ -485,14 +485,14 @@
       "uuid": "29841127-3247-4618-8e53-eaa800000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Why Not Option 3?"
         }
@@ -502,14 +502,14 @@
       "uuid": "29841127-3247-4618-8e53-f8e800000000",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Unchoosable (Seriously this breaks the tree)"
         }
@@ -519,14 +519,14 @@
       "uuid": "29841127-3247-4610-8037-c915c54a60ed",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "True"
         }
@@ -536,14 +536,14 @@
       "uuid": "29841127-3247-4610-8037-c915c54a60ee",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "False"
         }
@@ -553,14 +553,14 @@
       "uuid": "29841127-3247-4610-8037-c915c54a60ef",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Why Not Option 3?"
         }
@@ -570,14 +570,14 @@
       "uuid": "29841127-3247-4610-8037-c915c54a60f0",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "Unchoosable (Seriously this breaks the tree)"
         }
@@ -587,10 +587,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf93e49573",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "Choose one"
         }
@@ -600,14 +600,14 @@
       "uuid": "29841127-3247-4610-8037-c915cf227e89",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -617,10 +617,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf93fdc8f2",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "You Selected True"
         }
@@ -630,14 +630,14 @@
       "uuid": "29841127-3247-4610-8037-c915d45b7379",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "TRUE"
         }
@@ -647,14 +647,14 @@
       "uuid": "29841127-3247-4610-8037-c915d45b737a",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "FALSE"
         }
@@ -664,14 +664,14 @@
       "uuid": "29841127-3247-4610-8037-c915e5c24381",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "TRUE"
         }
@@ -681,14 +681,14 @@
       "uuid": "29841127-3247-4610-8037-c915e5c24382",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "FALSE"
         }
@@ -698,14 +698,14 @@
       "uuid": "29841127-3247-4610-8037-c915ecd5efc9",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -715,10 +715,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf9449d1c2",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "You selected False"
         }
@@ -728,14 +728,14 @@
       "uuid": "29841127-3247-4610-8037-c915ed3c1dfd",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "IVR",
-            "SMS",
-            "USSD",
-            "RICH_MESSAGING",
-            "OFFLINE"
+            "ivr",
+            "sms",
+            "ussd",
+            "rich_messaging",
+            "offline"
           ],
           "value": "1"
         }
@@ -745,10 +745,10 @@
       "uuid": "95bd9e4a-93cd-46f2-9b43-8ecf944ad757",
       "values": [
         {
-          "language_id": "22",
-          "content_type": "TEXT",
+          "languageId": "22",
+          "contentType": "text",
           "modes": [
-            "OFFLINE"
+            "offline"
           ],
           "value": "You can't have it both ways"
         }
