@@ -26,9 +26,9 @@ defmodule FlowMachine.Layers.CoreTest do
       exits: [over_18, under_18, default]
     }
 
-    assert {:ok, ^over_18, ctx} = Case.case_(block, %{"age" => 19})
-    assert {:ok, ^under_18, ctx} = Case.case_(block, %{"age" => 17})
-    assert {:ok, ^default, ctx} = Case.case_(block, %{"age" => 18})
+    assert {:ok, ^over_18, _ctx} = Case.case_(block, %{"age" => 19})
+    assert {:ok, ^under_18, _ctx} = Case.case_(block, %{"age" => 17})
+    assert {:ok, ^default, _ctx} = Case.case_(block, %{"age" => 18})
   end
 
   test "run_flow/2" do
@@ -41,7 +41,7 @@ defmodule FlowMachine.Layers.CoreTest do
       exits: [block_exit]
     }
 
-    assert {:ok, ^block_exit, ctx} = RunFlow.run_flow(block, %{})
+    assert {:ok, ^block_exit, _ctx} = RunFlow.run_flow(block, %{})
   end
 
   test "output/2" do
