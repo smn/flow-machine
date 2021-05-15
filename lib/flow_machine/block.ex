@@ -3,13 +3,22 @@ defmodule FlowMachine.Block do
   A block in a flow, the first block in a flow's
   blocks list is the starting point of a flow
   """
-  use FlowMachine.SpecLoader, manual: ["exits"]
+  use FlowMachine.SpecLoader, manual: ["exits", "platform_metadata", "type"]
+
+  @known_core_block_types [
+    "Core\\Log",
+    "Core\\Case",
+    "Core\\RunFlow",
+    "Core\\Output",
+    "Core\\SetContactProperty",
+    "Core\\SetGroupMembership"
+  ]
 
   defstruct uuid: nil,
             name: nil,
             label: nil,
             semantic_label: nil,
-            platform_metadata: %{},
+            vendor_metadata: %{},
             type: nil,
             config: %{},
             exits: []
@@ -19,7 +28,7 @@ defmodule FlowMachine.Block do
           name: String.t(),
           label: String.t() | nil,
           semantic_label: String.t() | nil,
-          platform_metadata: map,
+          vendor_metadata: map,
           type: String.t(),
           config: map,
           exits: [FlowMachine.BlockExit.t()]
@@ -27,4 +36,10 @@ defmodule FlowMachine.Block do
 
   def load_key(block, "exits", value),
     do: %{block | exits: Enum.map(value, &FlowMachine.BlockExit.load/1)}
+
+  def load_key(flow, "platform_metadata", value),
+    do: %{flow | vendor_metadata: value}
+
+  def load_key(flow, "type", value) when value in @known_core_block_types,
+    do: %{flow | type: value}
 end

@@ -1,0 +1,617 @@
+{
+  "flows": [
+    {
+      "uuid": "b510d3ed-0bca-4205-a250-e8247b52540c",
+      "name": "flow name",
+      "label": "flow label",
+      "last_modified": "2021-05-08 06:48:00.755Z",
+      "interaction_timeout": 172800,
+      "supported_modes": ["rich_messaging"],
+      "languages": [
+        {
+          "id": "22",
+          "name": "English",
+          "abbreviation": "EN",
+          "org_id": "1008107874829627392",
+          "right_to_left": false,
+          "code": null,
+          "deleted_at": null
+        }
+      ],
+      "platform_metadata": {},
+      "blocks": [
+        {
+          "uuid": "8f5eacf1-b101-4e49-bc4f-283353ecca98",
+          "platform_metadata": {
+            "io_viamo": {
+              "ui_data": {
+                "x_position": 275,
+                "y_position": 229
+              }
+            }
+          },
+          "type": "MobilePrimitives\\SelectManyResponse",
+          "name": "blockname",
+          "label": "block label",
+          "semantic_label": "semantic label",
+          "exits": [
+            {
+              "uuid": "ce73f707-e7fd-4f1d-84c0-dade0bdde5bf",
+              "tag": "Default",
+              "label": "Default",
+              "default": true,
+              "config": {}
+            },
+            {
+              "uuid": "61e87cc1-4e16-45ba-999f-347a62d3fec3",
+              "tag": "Error",
+              "label": "Error",
+              "config": {}
+            },
+            {
+              "uuid": "4edd07c5-c8cb-405c-961e-fd3eaf0ea038",
+              "test": "block.value = 1",
+              "label": "566e9921-0ade-49c0-a405-c9f15383b7d7",
+              "tag": "",
+              "config": {}
+            },
+            {
+              "uuid": "dab0f3a0-1b06-49dc-bde8-f24781bd688a",
+              "test": "block.value = 2",
+              "label": "dc8011be-661b-4edf-8f41-f860ecabda97",
+              "tag": "",
+              "config": {}
+            },
+            {
+              "uuid": "ca5fae2d-f611-4a61-8c40-5a4f225393da",
+              "test": "block.value = 3",
+              "label": "3db10f1a-b937-4181-bede-e0ea241f1eb0",
+              "tag": "",
+              "config": {}
+            }
+          ],
+          "config": {
+            "prompt": "0352349c-f29d-4ed4-922a-ea10b2345a68",
+            "question_prompt": "faf50b10-4d1b-44e1-a1fc-cc4746baf3e3",
+            "choices_prompt": "9212189c-5c74-4f71-84fe-d73142d34569",
+            "choices": {
+              "1": "41c809d6-b0d5-496c-b9fd-9f63a41ba224",
+              "2": "566e9921-0ade-49c0-a405-c9f15383b7d7",
+              "3": "dc8011be-661b-4edf-8f41-f860ecabda97",
+              "4": "3db10f1a-b937-4181-bede-e0ea241f1eb0"
+            }
+          }
+        }
+      ],
+      "first_block_id": "8f5eacf1-b101-4e49-bc4f-283353ecca98"
+    }
+  ],
+  "resources": [
+    {
+      "uuid": "41c809d6-b0d5-496c-b9fd-9f63a41ba224",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "option 1"
+        }
+      ]
+    },
+    {
+      "uuid": "0352349c-f29d-4ed4-922a-ea10b2345a68",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "prompt"
+        }
+      ]
+    },
+    {
+      "uuid": "faf50b10-4d1b-44e1-a1fc-cc4746baf3e3",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "question prompt"
+        }
+      ]
+    },
+    {
+      "uuid": "9212189c-5c74-4f71-84fe-d73142d34569",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "23",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "choices prompt"
+        }
+      ]
+    },
+    {
+      "uuid": "30f3bab9-6d94-4deb-b2c2-ddc406d178e6",
+      "values": []
+    },
+    {
+      "uuid": "ea13f62c-360e-403f-a112-fbf04a650246",
+      "values": []
+    },
+    {
+      "uuid": "566e9921-0ade-49c0-a405-c9f15383b7d7",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "option 2"
+        }
+      ]
+    },
+    {
+      "uuid": "e4ec01a5-3845-4ca9-8c16-aea33021cacb",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        }
+      ]
+    },
+    {
+      "uuid": "5672447e-a4f9-42f1-a541-c0b4a0002cd3",
+      "values": []
+    },
+    {
+      "uuid": "dc8011be-661b-4edf-8f41-f860ecabda97",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        },
+        {
+          "language_id": "22",
+          "content_type": "text",
+          "modes": ["rich_messaging"],
+          "value": "option 3"
+        }
+      ]
+    },
+    {
+      "uuid": "e9d24baf-0727-4453-9983-3d0959a41331",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        }
+      ]
+    },
+    {
+      "uuid": "61f3cf19-d4ec-4e4a-b928-78d832e30e70",
+      "values": []
+    },
+    {
+      "uuid": "3db10f1a-b937-4181-bede-e0ea241f1eb0",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        }
+      ]
+    },
+    {
+      "uuid": "368686c9-08ac-409c-a40d-72ba22f0336c",
+      "values": [
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["sms"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text"],
+          "modes": ["ussd"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["audio"],
+          "modes": ["ivr"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["rich_messaging"]
+        },
+        {
+          "language_id": "22",
+          "value": "",
+          "content_type": ["text", "image", "video"],
+          "modes": ["offline"]
+        }
+      ]
+    },
+    {
+      "uuid": "2f56a55f-5edf-4875-9ca8-427cf76e4925",
+      "values": []
+    }
+  ]
+}
